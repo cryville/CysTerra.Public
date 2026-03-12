@@ -1,0 +1,11 @@
+<Project>
+
+	<ItemGroup>
+		<ProjectReference
+			Include="$(MSBuildThisFileDirectory)\Interfaces\Cryville.EEW.Analyzer\Cryville.EEW.Analyzer\Cryville.EEW.Analyzer.csproj"
+			PrivateAssets="all"
+			ReferenceOutputAssembly="false"
+			OutputItemType="Analyzer" />
+	</ItemGroup>
+	
+</Project>
