@@ -1,0 +1,7 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成GlobalQuakeServer事件詳細嘅組件。",
+		"$ExtensionName": "GlobalQuake事物組件"
+	}
+}
