@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.1</Version>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Cryville.Interop.Java.ObjectStream" Version="0.0.5" PrivateAssets="contentfiles;analyzers;build;runtime" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>

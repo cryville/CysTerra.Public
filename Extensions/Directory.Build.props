@@ -1,0 +1,20 @@
+<Project>
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<AnalysisLevel>latest-all</AnalysisLevel>
+		<IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<IsExtensionProject>true</IsExtensionProject>
+		<ExtensionPackageTargetFramework>netstandard2.1</ExtensionPackageTargetFramework>
+		<ExtensionPackageOutputDirectory>$(MSBuildThisFileDirectory)\Out\$(MSBuildProjectName)\</ExtensionPackageOutputDirectory>
+	</PropertyGroup>
+
+	<Import Project="$(MSBuildThisFileDirectory)../Interfaces/Cryville.EEW/Cryville.EEW.targets" />
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" Condition="'' != $([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+</Project>

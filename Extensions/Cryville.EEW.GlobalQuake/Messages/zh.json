@@ -1,0 +1,33 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于接收及处理GlobalQuakeServer来源的信息的核心组件。",
+		"$ExtensionName": "GlobalQuake事件源组件",
+		"AuthorityName": "GlobalQuake",
+		"ErrorInvalidServer": "连接到的服务器不是一个 GlobalQuakeServer。",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyQuality": "质量",
+		"SourceName": "GlobalQuakeServer",
+		"Title": "检出",
+		"TitleArchived": "归档",
+		"TitleCanceled": "取消",
+		"PNHost": "主机",
+		"PNPort": "端口"
+	},
+	"StringSets": {
+		"PropertyQualityValue": {
+			"Strings": {
+				"S": "S",
+				"A": "A",
+				"B": "B",
+				"C": "C",
+				"D": "D",
+				"E": "E",
+				"F": "F",
+				"?": "?"
+			}
+		}
+	}
+}

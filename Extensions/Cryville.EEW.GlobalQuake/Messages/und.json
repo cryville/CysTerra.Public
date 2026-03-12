@@ -1,0 +1,33 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from GlobalQuakeServer.",
+		"$ExtensionName": "GlobalQuake event source components",
+		"AuthorityName": "GlobalQuake",
+		"ErrorInvalidServer": "The server connected is not a GlobalQuakeServer.",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyQuality": "Quality",
+		"SourceName": "GlobalQuakeServer",
+		"Title": "Detected",
+		"TitleArchived": "Archived",
+		"TitleCanceled": "Canceled",
+		"PNHost": "Host",
+		"PNPort": "Port"
+	},
+	"StringSets": {
+		"PropertyQualityValue": {
+			"Strings": {
+				"S": "S",
+				"A": "A",
+				"B": "B",
+				"C": "C",
+				"D": "D",
+				"E": "E",
+				"F": "F",
+				"?": "?"
+			}
+		}
+	}
+}
