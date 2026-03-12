@@ -1,0 +1,3 @@
+[submodule "Interfaces"]
+	path = Interfaces
+	url = https://github.com/PopSlime/CysTerra.Interfaces.git
