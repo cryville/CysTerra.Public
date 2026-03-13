@@ -14,6 +14,16 @@
 		<ExtensionPackageOutputDirectory>$(MSBuildThisFileDirectory)\Out\$(MSBuildProjectName)\</ExtensionPackageOutputDirectory>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.UsesExtendedSemanticVersioningAttribute" />
+		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.LocalizableDisplayNameAttribute">
+			<_Parameter1>$ExtensionName</_Parameter1>
+		</AssemblyAttribute>
+		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.LocalizableDescriptionAttribute">
+			<_Parameter1>$ExtensionDesc</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
 	<Import Project="$(MSBuildThisFileDirectory)../Interfaces/Cryville.EEW/Cryville.EEW.props" />
 	<Import Project="$(MSBuildThisFileDirectory)../Interfaces/Cryville.EEW/Cryville.EEW.targets" />
 	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" Condition="'' != $([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
