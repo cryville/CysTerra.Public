@@ -91,7 +91,7 @@ namespace Cryville.EEW.GlobalQuake {
 			using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(cts.Token, cancellationToken);
 			var heartbeatTask = Task.Run(() => SendHeartbeat(writer, TimeSpan.FromSeconds(20), linkedCts.Token), linkedCts.Token);
 			try {
-				using var reader = GlobalQuakeWorker.CreateAndVerifyStreamReader(stream);
+				using var reader = CreateAndVerifyStreamReader(stream);
 				var context = new ObjectStreamContext();
 				for (; ; ) {
 					if (cancellationToken.IsCancellationRequested) break;
