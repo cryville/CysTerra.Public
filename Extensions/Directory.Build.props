@@ -14,6 +14,7 @@
 		<ExtensionPackageOutputDirectory>$(MSBuildThisFileDirectory)\Out\$(MSBuildProjectName)\</ExtensionPackageOutputDirectory>
 	</PropertyGroup>
 
+	<Import Project="$(MSBuildThisFileDirectory)../Interfaces/Cryville.EEW/Cryville.EEW.props" />
 	<Import Project="$(MSBuildThisFileDirectory)../Interfaces/Cryville.EEW/Cryville.EEW.targets" />
 	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" Condition="'' != $([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 
