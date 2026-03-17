@@ -22,6 +22,7 @@
 		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.LocalizableDescriptionAttribute">
 			<_Parameter1>$ExtensionDesc</_Parameter1>
 		</AssemblyAttribute>
+		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.JsonSerializedPropertyAttribute" />
 	</ItemGroup>
 
 	<Import Project="$(MSBuildThisFileDirectory)../Interfaces/Cryville.EEW/Cryville.EEW.props" />
