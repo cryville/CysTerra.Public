@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Common components for processing information of the Atom Syndication Format.",
+		"$ExtensionName": "Atom common components"
+	}
+}

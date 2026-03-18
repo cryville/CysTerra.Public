@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于处理Atom聚合格式的信息的通用组件。",
+		"$ExtensionName": "Atom通用组件"
+	}
+}
