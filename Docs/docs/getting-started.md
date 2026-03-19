@@ -13,14 +13,6 @@ To instruct the compiler to generate the extension package, you need to open the
 </PropertyGroup>
 ```
 
-By default, the extension package is generated in `bin/ext/Release/` in your project directory. You can change it by adding the following property into your project file.
-
-```xml
-<PropertyGroup>
-	<ExtensionPackageOutputDirectory>$(MSBuildThisFileDirectory)some/path/in/project/directory/</ExtensionPackageOutputDirectory>
-</PropertyGroup>
-```
-
 ## Dependencies
 After creating the project, decide which kind of extension you want to make. According to the components you want to provide in the extension, you need to install different packages as dependencies.
 
