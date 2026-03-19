@@ -3,10 +3,11 @@ name: Publish docs
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - 'Docs/**'
       - 'Interfaces'
+  workflow_dispatch: {}
 
 jobs:
   build:
