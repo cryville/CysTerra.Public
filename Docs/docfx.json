@@ -1,0 +1,59 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../Interfaces",
+          "files": [
+            "**/*.csproj"
+          ],
+          "exclude": [
+            "Cryville.EEW.Analyzer/**"
+          ]
+        }
+      ],
+      "dest": "api",
+      "shouldSkipMarkup": true
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "xref": [
+      "https://learn.microsoft.com/en-us/dotnet/.xrefmap.json"
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**",
+          "theme/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "theme": "theme/",
+    "globalMetadata": {
+      "_appLogoPath": "/images/appicon-64x.png",
+      "_appFaviconPath": "/images/appicon.ico",
+      "_appName": "CysTerra",
+      "_appTitle": "CysTerra",
+      "_disableContribution": true,
+      "_enableSearch": true,
+      "_lang": "en-US",
+      "pdf": false
+    }
+  }
+}

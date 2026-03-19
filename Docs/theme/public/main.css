@@ -1,0 +1,310 @@
+:root, [data-bs-theme=light] {
+	--md-sys-color-primary: rgb(144 75 61);
+	--md-sys-color-surface-tint: rgb(144 75 61);
+	--md-sys-color-on-primary: rgb(255 255 255);
+	--md-sys-color-primary-container: rgb(255 218 211);
+	--md-sys-color-on-primary-container: rgb(115 52 40);
+	--md-sys-color-secondary: rgb(119 87 80);
+	--md-sys-color-on-secondary: rgb(255 255 255);
+	--md-sys-color-secondary-container: rgb(255 218 211);
+	--md-sys-color-on-secondary-container: rgb(93 63 57);
+	--md-sys-color-tertiary: rgb(110 92 46);
+	--md-sys-color-on-tertiary: rgb(255 255 255);
+	--md-sys-color-tertiary-container: rgb(249 224 166);
+	--md-sys-color-on-tertiary-container: rgb(85 69 25);
+	--md-sys-color-error: rgb(186 26 26);
+	--md-sys-color-on-error: rgb(255 255 255);
+	--md-sys-color-error-container: rgb(255 218 214);
+	--md-sys-color-on-error-container: rgb(147 0 10);
+	--md-sys-color-background: rgb(255 248 246);
+	--md-sys-color-on-background: rgb(35 25 24);
+	--md-sys-color-surface: rgb(255 248 246);
+	--md-sys-color-on-surface: rgb(35 25 24);
+	--md-sys-color-surface-variant: rgb(245 221 217);
+	--md-sys-color-on-surface-variant: rgb(83 67 64);
+	--md-sys-color-outline: rgb(133 115 111);
+	--md-sys-color-outline-variant: rgb(216 194 189);
+	--md-sys-color-shadow: rgb(0 0 0);
+	--md-sys-color-scrim: rgb(0 0 0);
+	--md-sys-color-inverse-surface: rgb(57 46 44);
+	--md-sys-color-inverse-on-surface: rgb(255 237 233);
+	--md-sys-color-inverse-primary: rgb(255 180 165);
+	--md-sys-color-primary-fixed: rgb(255 218 211);
+	--md-sys-color-on-primary-fixed: rgb(58 10 3);
+	--md-sys-color-primary-fixed-dim: rgb(255 180 165);
+	--md-sys-color-on-primary-fixed-variant: rgb(115 52 40);
+	--md-sys-color-secondary-fixed: rgb(255 218 211);
+	--md-sys-color-on-secondary-fixed: rgb(44 21 17);
+	--md-sys-color-secondary-fixed-dim: rgb(231 189 181);
+	--md-sys-color-on-secondary-fixed-variant: rgb(93 63 57);
+	--md-sys-color-tertiary-fixed: rgb(249 224 166);
+	--md-sys-color-on-tertiary-fixed: rgb(36 26 0);
+	--md-sys-color-tertiary-fixed-dim: rgb(220 196 140);
+	--md-sys-color-on-tertiary-fixed-variant: rgb(85 69 25);
+	--md-sys-color-surface-dim: rgb(232 214 211);
+	--md-sys-color-surface-bright: rgb(255 248 246);
+	--md-sys-color-surface-container-lowest: rgb(255 255 255);
+	--md-sys-color-surface-container-low: rgb(255 240 238);
+	--md-sys-color-surface-container: rgb(252 234 230);
+	--md-sys-color-surface-container-high: rgb(247 228 225);
+	--md-sys-color-surface-container-highest: rgb(241 223 219);
+}
+
+[data-bs-theme=dark] {
+	--md-sys-color-primary: rgb(255 180 165);
+	--md-sys-color-surface-tint: rgb(255 180 165);
+	--md-sys-color-on-primary: rgb(86 30 20);
+	--md-sys-color-primary-container: rgb(115 52 40);
+	--md-sys-color-on-primary-container: rgb(255 218 211);
+	--md-sys-color-secondary: rgb(231 189 181);
+	--md-sys-color-on-secondary: rgb(68 42 36);
+	--md-sys-color-secondary-container: rgb(93 63 57);
+	--md-sys-color-on-secondary-container: rgb(255 218 211);
+	--md-sys-color-tertiary: rgb(220 196 140);
+	--md-sys-color-on-tertiary: rgb(61 47 4);
+	--md-sys-color-tertiary-container: rgb(85 69 25);
+	--md-sys-color-on-tertiary-container: rgb(249 224 166);
+	--md-sys-color-error: rgb(255 180 171);
+	--md-sys-color-on-error: rgb(105 0 5);
+	--md-sys-color-error-container: rgb(147 0 10);
+	--md-sys-color-on-error-container: rgb(255 218 214);
+	--md-sys-color-background: rgb(26 17 16);
+	--md-sys-color-on-background: rgb(241 223 219);
+	--md-sys-color-surface: rgb(26 17 16);
+	--md-sys-color-on-surface: rgb(241 223 219);
+	--md-sys-color-surface-variant: rgb(83 67 64);
+	--md-sys-color-on-surface-variant: rgb(216 194 189);
+	--md-sys-color-outline: rgb(160 140 136);
+	--md-sys-color-outline-variant: rgb(83 67 64);
+	--md-sys-color-shadow: rgb(0 0 0);
+	--md-sys-color-scrim: rgb(0 0 0);
+	--md-sys-color-inverse-surface: rgb(241 223 219);
+	--md-sys-color-inverse-on-surface: rgb(57 46 44);
+	--md-sys-color-inverse-primary: rgb(144 75 61);
+	--md-sys-color-primary-fixed: rgb(255 218 211);
+	--md-sys-color-on-primary-fixed: rgb(58 10 3);
+	--md-sys-color-primary-fixed-dim: rgb(255 180 165);
+	--md-sys-color-on-primary-fixed-variant: rgb(115 52 40);
+	--md-sys-color-secondary-fixed: rgb(255 218 211);
+	--md-sys-color-on-secondary-fixed: rgb(44 21 17);
+	--md-sys-color-secondary-fixed-dim: rgb(231 189 181);
+	--md-sys-color-on-secondary-fixed-variant: rgb(93 63 57);
+	--md-sys-color-tertiary-fixed: rgb(249 224 166);
+	--md-sys-color-on-tertiary-fixed: rgb(36 26 0);
+	--md-sys-color-tertiary-fixed-dim: rgb(220 196 140);
+	--md-sys-color-on-tertiary-fixed-variant: rgb(85 69 25);
+	--md-sys-color-surface-dim: rgb(26 17 16);
+	--md-sys-color-surface-bright: rgb(66 55 52);
+	--md-sys-color-surface-container-lowest: rgb(20 12 11);
+	--md-sys-color-surface-container-low: rgb(35 25 24);
+	--md-sys-color-surface-container: rgb(39 29 27);
+	--md-sys-color-surface-container-high: rgb(50 40 38);
+	--md-sys-color-surface-container-highest: rgb(61 50 48);
+}
+
+:root {
+	--bs-body-color: var(--md-sys-color-on-surface);
+	--bs-body-bg: var(--md-sys-color-surface);
+	--bs-emphasis-color: var(--md-sys-color-on-surface);
+	--bs-secondary-color: var(--md-sys-color-on-secondary-container);
+	--bs-secondary-bg: var(--md-sys-color-secondary-container);
+	--bs-tertiary-color: var(--md-sys-color-on-tertiary-container);
+	--bs-tertiary-bg: var(--md-sys-color-tertiary-container);
+	--bs-link-color: var(--md-sys-color-primary);
+	--bs-link-hover-color: var(--md-sys-color-on-primary-container);
+	--bs-border-color: var(--md-sys-color-outline-variant);
+}
+
+:root {
+	--bs-font-sans-serif: sans-serif;
+	--bs-border-radius: 10px;
+
+	--border-radius-button: 40px;
+	--card-box-shadow: 0 1px 2px 0 #3d41440f, 0 1px 3px 1px #3d414429;
+
+	--material-yellow-light: #e6dfbf;
+	--material-yellow-dark: #5a5338;
+
+	--material-blue-light: #c4d9f1;
+	--material-blue-dark: #383e5a;
+
+	--material-red-light: #f1c4c4;
+	--material-red-dark: #5a3838;
+
+	--material-warning-header: #f57f171a;
+	--material-warning-background: #f6e8bd;
+	--material-warning-background-dark: #57502c;
+
+	--material-info-header: #1976d21a;
+	--material-info-background: #e3f2fd;
+	--material-info-background-dark: #2c4557;
+
+	--material-danger-header: #d32f2f1a;
+	--material-danger-background: #ffebee;
+	--material-danger-background-dark: #572c2c;
+}
+
+body {
+	text-autospace: ideograph-alpha ideograph-numeric replace;
+	text-spacing-trim: trim-both;
+}
+a {
+	color: var(--bs-link-color);
+}
+a:hover {
+	color: var(--bs-link-hover-color);
+}
+.link-body-emphasis {
+	color: var(--bs-emphasis-color) !important;
+	text-decoration-color: var(--bs-emphasis-color) !important;
+}
+.link-body-emphasis:hover, .link-body-emphasis:focus {
+	color: rgba(from var(--bs-emphasis-color) r g b / 0.75) !important;
+	text-decoration-color: rgba(from var(--bs-emphasis-color) r g b / 0.75) !important;
+}
+.text-secondary {
+	color: var(--bs-secondary-color) !important;
+}
+.link-secondary {
+	color: var(--md-sys-color-secondary) !important;
+	text-decoration-color: var(--md-sys-color-secondary) !important;
+}
+.link-secondary:hover, .link-secondary:focus {
+	color: rgba(from var(--md-sys-color-secondary) r g b / 0.75) !important;
+	text-decoration-color: rgba(from var(--md-sys-color-secondary) r g b / 0.75) !important;
+}
+#search-results > .search-list {
+	color: var(--md-sys-color-on-secondary-container);
+}
+#search-results > .sr-items .sr-item > .item-href {
+	color: var(--md-sys-color-on-surface-variant);
+}
+pre {
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+}
+
+@media screen and (max-width: 560px) {
+	body {
+		text-align: initial;
+	}
+}
+
+/* HEADINGS */
+article h2 {
+	padding-bottom: 8px;
+	border-bottom: 2px solid var(--md-sys-color-outline-variant);
+}
+
+/** IMAGES **/
+img {
+	border-radius: var(--bs-border-radius);
+	box-shadow: var(--card-box-shadow);
+}
+
+/** NAVBAR **/
+.navbar-brand > img {
+	box-shadow: none;
+	color: var(--bs-nav-link-color);
+}
+
+nav.navbar {
+	background-color: var(--md-sys-color-secondary-container);
+	color: var(--md-sys-color-on-secondary-container);
+	--bs-navbar-color: var(--md-sys-color-on-secondary-container);
+	--bs-navbar-hover-color: var(--md-sys-color-on-secondary-container);
+	--bs-navbar-disabled-color: rgba(from var(--md-sys-color-on-surface) r g b / 0.38);
+	--bs-navbar-active-color: var(--md-sys-color-on-secondary-container);
+	--bs-navbar-brand-color: var(--md-sys-color-on-secondary-container);
+	--bs-navbar-brand-hover-color: var(--md-sys-color-on-secondary-container);
+}
+
+.navbar-nav > li > a {
+	border-radius: var(--border-radius-button);
+	transition: 200ms;
+}
+
+.navbar-nav a.nav-link:focus,
+.navbar-nav a.nav-link:hover {
+	background-color: rgba(from var(--md-sys-color-on-secondary-container) r g b / 0.08);
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+	color: var(--bs-link-hover-color);
+}
+
+/** SEARCH AND FILTER **/
+input.form-control {
+	border-radius: var(--border-radius-button);
+}
+
+form.filter {
+	margin: 0.3rem;
+}
+
+/** ALERTS **/
+.alert {
+	padding: 0;
+	border: none;
+	box-shadow: var(--card-box-shadow);
+}
+
+.alert > p {
+	padding: 0.2rem 0.7rem 0.7rem 1rem;
+}
+
+.alert > ul {
+	margin-bottom: 0;
+	padding: 5px 40px;
+}
+
+.alert > h5 {
+	padding: 0.5rem 0.7rem 0.7rem 1rem;
+	border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+.alert-info {
+	color: var(--material-blue-dark);
+	background-color: var(--material-info-background);
+}
+
+[data-bs-theme='dark'] .alert-info {
+	color: var(--material-blue-light);
+	background-color: var(--material-info-background-dark);
+}
+
+.alert-info > h5 {
+	background-color: var(--material-info-header);
+}
+
+.alert-warning {
+	color: var(--material-yellow-dark);
+	background-color: var(--material-warning-background);
+}
+
+[data-bs-theme='dark'] .alert-warning {
+	color: var(--material-yellow-light);
+	background-color: var(--material-warning-background-dark);
+}
+
+.alert-warning > h5 {
+	background-color: var(--material-warning-header);
+}
+
+.alert-danger {
+	color: var(--material-red-dark);
+	background-color: var(--material-danger-background);
+}
+
+[data-bs-theme='dark'] .alert-danger {
+	color: var(--material-red-light);
+	background-color: var(--material-danger-background-dark);
+}
+
+.alert-danger > h5 {
+	background-color: var(--material-danger-header);
+}
