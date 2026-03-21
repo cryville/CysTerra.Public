@@ -5,6 +5,9 @@ To build an extension, [.NET SDK](https://dotnet.microsoft.com/en-us/) is requir
 
 An extension is essentially a class library. To create one in Visual Studio, select the “Class Library” template when creating a project. It is recommended to use .NET Standard 2.1 as the framework.
 
+> [!TIP]
+> All the interfaces and first-party extensions of CysTerra have their names started with `Cryville.EEW`. This is not mandatory, and you should pick the name of your extension by yourself instead.
+
 To instruct the compiler to generate the extension package, you need to open the project file (`.csproj`, `.fsproj`, or `.vbproj` depending on the programming language), and then append the following property.
 
 ```xml
@@ -26,12 +29,15 @@ Additional packages may be installed per requirement.
 
 Package | Contents
 ------- | --------
-`Cryville.EEW.GeoJSON` | Provides GeoJSON objects for parsing; Provides conversion from GeoJSON objects to feature geometries
+`Cryville.EEW.Analyzer` | Provides code analyzers that report potential issues within your code
 `Cryville.EEW.Measure` | Provides helper types and methods related to quantities
 `Cryville.EEW.TagTypeKeys` | Provides a set of stable tag type keys that are well defined
 `Cryville.Measure` | Provides quantity types
 
 You can install the packages from NuGet. In Visual Studio, select “Manage NuGet Packages” in the Project menu, browse and install the packages you need.
+
+> [!TIP]
+> It is recommended to always install `Cryville.EEW.Analyzer`.
 
 > [!TIP]
 > It is recommended to split your extension into multiple extensions if you are making multiple types of components. (Except for source workers and report generators which should be placed into a single extension)
@@ -77,7 +83,6 @@ The following are documentations about different types of components. Read the o
 In order for CysTerra to discover your components, you also need to define [builders](builder.md) for them.
 
 ## Additional Guides
-- [Versioning](versioning.md): Maintain compatibility with CysTerra and other components.
 - [Localization](localization.md): Localize the texts in your extension.
 - [Packaging](packaging.md): Package your extension for publishing.
 - ~~[Error Reporting](error-reporting.md): Allow users to report errors occurred in your extension to you.~~

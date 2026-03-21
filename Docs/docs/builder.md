@@ -78,3 +78,8 @@ public class MyReportGenerator : IGenerator<MyEvent, ReportModel>, IPropertiesHo
 
 > [!NOTE]
 > Builders actually implement [](xref:Cryville.EEW.IPropertiesHolder) as well because [](xref:Cryville.EEW.IBuilder) derives from it.
+
+## Configuration Serialization
+By default, configurations are saved in an unstable way, which can potentially break across different devices or when the app or the extension is updated. It is recommended to apply [](xref:Cryville.EEW.ComponentModel.JsonSerializedPropertyAttribute) to your properties so that they are saved in a much more stable way.
+
+You can also apply that attribute to the class or the whole assembly to enable stable serialization for all properties within the scope.
