@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-TW",
+	"Strings": {
+		"$ExtensionDesc": "用於處理GeoJSON格式的資訊的通用組件。",
+		"$ExtensionName": "GeoJSON通用組件"
+	}
+}

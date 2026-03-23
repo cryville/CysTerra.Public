@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Common components for processing information of the GeoJSON Format.",
+		"$ExtensionName": "GeoJSON common components"
+	}
+}
