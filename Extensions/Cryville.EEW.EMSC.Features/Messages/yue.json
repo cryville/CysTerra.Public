@@ -1,0 +1,7 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成歐洲與地中海地震中心事件詳細嘅組件。",
+		"$ExtensionName": "EMSC事物組件"
+	}
+}

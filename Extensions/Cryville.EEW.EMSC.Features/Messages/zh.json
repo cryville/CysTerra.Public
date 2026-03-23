@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成欧洲与地中海地震中心事件详情的组件。",
+		"$ExtensionName": "EMSC事物组件"
+	}
+}

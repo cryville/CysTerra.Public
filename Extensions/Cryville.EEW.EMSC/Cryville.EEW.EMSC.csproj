@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.GeoJSON\Cryville.EEW.GeoJSON.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>

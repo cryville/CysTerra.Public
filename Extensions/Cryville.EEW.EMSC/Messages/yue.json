@@ -1,0 +1,13 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於接收及處理歐洲與地中海地震中心來源嘅資訊嘅核心組件。",
+		"$ExtensionName": "EMSC事件源組件",
+		"AuthorityName": "EMSC",
+		"AuthorityNameForwarded": "EMSC | {0}",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"SourceName": "EMSC",
+		"Title": "地震事件"
+	}
+}

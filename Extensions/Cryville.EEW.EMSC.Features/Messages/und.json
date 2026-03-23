@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from Euro-Mediterranean Seismological Centre.",
+		"$ExtensionName": "EMSC feature components"
+	}
+}

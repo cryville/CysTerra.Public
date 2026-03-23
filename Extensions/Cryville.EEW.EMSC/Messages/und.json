@@ -1,0 +1,13 @@
+{
+	"Culture": "en-GB",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from Euro-Mediterranean Seismological Centre.",
+		"$ExtensionName": "EMSC event source components",
+		"AuthorityName": "EMSC",
+		"AuthorityNameForwarded": "EMSC | {0}",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"SourceName": "EMSC",
+		"Title": "Earthquake event"
+	}
+}
