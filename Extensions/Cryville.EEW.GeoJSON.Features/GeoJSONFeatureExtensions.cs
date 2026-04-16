@@ -9,7 +9,7 @@ namespace Cryville.EEW.GeoJSON.Features {
 		/// Converts a position to an instance of the <see cref="Coordinates" /> struct.
 		/// </summary>
 		/// <returns>The converted coordinates.</returns>
-		public static Coordinates ToCoordinates(this Position p) => p.ToCoordinates();
+		public static Coordinates ToCoordinates(this Position p) => new(p.Longitude, p.Latitude);
 		/// <summary>
 		/// Converts the current instance to an instance of the <see cref="EEW.Features.Geometry" /> class.
 		/// </summary>
