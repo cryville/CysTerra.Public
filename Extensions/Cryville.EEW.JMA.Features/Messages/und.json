@@ -1,0 +1,7 @@
+{
+	"Culture": "ja-JP",
+	"Strings": {
+		"$ExtensionDesc": "気象庁情報の要素生成用共通コンポーネント。",
+		"$ExtensionName": "JMA共通要素コンポーネント"
+	}
+}

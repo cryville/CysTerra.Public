@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成日本气象厅来源的事件详情的通用组件。",
+		"$ExtensionName": "JMA通用事物组件"
+	}
+}

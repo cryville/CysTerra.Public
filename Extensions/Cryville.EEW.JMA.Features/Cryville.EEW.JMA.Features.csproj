@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.2</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.Features\Cryville.EEW.Features.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TagTypeKeys\Cryville.EEW.TagTypeKeys.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.Measure\Cryville.Measure.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.GeoJSON.Features\Cryville.EEW.GeoJSON.Features.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.JMA.Map\Cryville.EEW.JMA.Map.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.JMA\Cryville.EEW.JMA.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>
