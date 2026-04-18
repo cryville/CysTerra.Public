@@ -1,10 +1,9 @@
-using Cryville.EEW;
 using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 
 #nullable disable
 
-namespace Atom {
+namespace Cryville.EEW.Atom {
 	/// <summary>
 	/// An Atom Feed Document, acting as a container for metadata and data associated with the feed.
 	/// </summary>

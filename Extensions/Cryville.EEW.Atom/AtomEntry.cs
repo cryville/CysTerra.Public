@@ -1,10 +1,9 @@
-using Cryville.EEW;
 using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 
 #nullable disable
 
-namespace Atom {
+namespace Cryville.EEW.Atom {
 	/// <summary>
 	/// An individual entry, acting as a container for metadata and data associated with the entry.
 	/// </summary>

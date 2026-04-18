@@ -2,7 +2,7 @@ using System.Xml.Serialization;
 
 #nullable disable
 
-namespace Atom {
+namespace Cryville.EEW.Atom {
 	/// <summary>
 	/// The content of an entry.
 	/// </summary>

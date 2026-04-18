@@ -2,7 +2,7 @@ using System.Xml.Serialization;
 
 #nullable disable
 
-namespace Atom {
+namespace Cryville.EEW.Atom {
 	/// <summary>
 	/// A reference from an entry or feed to a Web resource.
 	/// </summary>
