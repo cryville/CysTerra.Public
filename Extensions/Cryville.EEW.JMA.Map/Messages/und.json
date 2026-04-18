@@ -1,0 +1,7 @@
+{
+	"Culture": "ja-JP",
+	"Strings": {
+		"$ExtensionDesc": "気象庁情報関連共通マップデータ。",
+		"$ExtensionName": "JMAマップデータ"
+	}
+}

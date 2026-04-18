@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Common map data for information from Japan Meteorological Agency.",
+		"$ExtensionName": "JMA map data"
+	}
+}

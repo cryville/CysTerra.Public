@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.2</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.GeoJSON\Cryville.EEW.GeoJSON.csproj" Private="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>Cryville.EEW.JMA.Features</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\JMAAreaForecastLocalE.Designer.cs">
+			<DependentUpon>JMAAreaForecastLocalE.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Resources\JMAAreaTsunami.Designer.cs">
+			<DependentUpon>JMAAreaTsunami.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Resources\JMAPointTsunami.Designer.cs">
+			<DependentUpon>JMAPointTsunami.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+		<Compile Update="Resources\JMASeisStations.Designer.cs">
+			<DependentUpon>JMASeisStations.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\JMAAreaForecastLocalE.resx">
+			<LastGenOutput>JMAAreaForecastLocalE.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\JMAAreaTsunami.resx">
+			<LastGenOutput>JMAAreaTsunami.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\JMAPointTsunami.resx">
+			<SubType>Designer</SubType>
+			<LastGenOutput>JMAPointTsunami.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\JMASeisStations.resx">
+			<SubType>Designer</SubType>
+			<LastGenOutput>JMASeisStations.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>

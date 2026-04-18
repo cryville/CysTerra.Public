@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "日本气象厅来源的信息相关的通用地图数据。",
+		"$ExtensionName": "JMA地图数据"
+	}
+}
