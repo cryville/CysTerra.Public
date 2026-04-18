@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.2</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.Atom\Cryville.EEW.Atom.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.JMA\Cryville.EEW.JMA.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>
