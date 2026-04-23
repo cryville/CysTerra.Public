@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from Japan Meteorological Agency Atom Feed.",
+		"$ExtensionName": "JMA Atom feature components"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"Culture": "ja-JP",
+	"Strings": {
+		"$ExtensionDesc": "気象庁Atomフィード情報の詳細生成用コアコンポーネント。",
+		"$ExtensionName": "JMA Atom要素コンポーネント"
+	}
+}

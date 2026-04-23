@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-TW",
+	"Strings": {
+		"$ExtensionDesc": "用於生成日本氣象廳Atom推送事件詳情的組件。",
+		"$ExtensionName": "JMA Atom事物組件"
+	}
+}
