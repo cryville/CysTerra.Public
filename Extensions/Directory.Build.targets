@@ -1,0 +1,7 @@
+<Project>
+	<Target Name="_SetExtensionPackageOutputDirectoryPerVersion" BeforeTargets="GenerateExtensionPackage" Condition="'$(GenerateExtensionPackage)' == 'true'">
+		<PropertyGroup>
+			<ExtensionPackageOutputDirectory>$(MSBuildThisFileDirectory)\Out\$(MSBuildProjectName)\universal\$(AssemblyVersion)\</ExtensionPackageOutputDirectory>
+		</PropertyGroup>
+	</Target>
+</Project>
