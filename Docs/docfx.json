@@ -10,7 +10,7 @@
           ],
           "exclude": [
             "Cryville.EEW.Analyzer/**",
-            "Cryville.Packages/**"
+            "Internal/**"
           ]
         }
       ],
