@@ -1,0 +1,18 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Common components for processing information from China Earthquake Networks Center.",
+		"$ExtensionName": "CENC common components"
+	},
+	"StringSets": {
+		"LocationAffixes": {
+			"Strings": {
+				"Collapse": "collapse",
+				"Explosion": "explosion",
+				"Mining": "mine blast",
+				"Separator": ", ",
+				"Suspected": "suspected {0}"
+			}
+		}
+	}
+}

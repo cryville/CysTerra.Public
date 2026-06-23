@@ -1,0 +1,18 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于处理中国地震台网中心来源的信息的通用组件。",
+		"$ExtensionName": "CENC通用组件"
+	},
+	"StringSets": {
+		"LocationAffixes": {
+			"Strings": {
+				"Collapse": "塌陷",
+				"Explosion": "爆破",
+				"Mining": "矿震",
+				"Separator": "、",
+				"Suspected": "疑似{0}"
+			}
+		}
+	}
+}
