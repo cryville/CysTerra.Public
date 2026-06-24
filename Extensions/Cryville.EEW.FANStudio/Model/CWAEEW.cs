@@ -1,0 +1,17 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace Cryville.EEW.FANStudio.Model {
+	public record CWAEEW(
+		[property: JsonPropertyName("id")] string ID,
+		[property: JsonPropertyName("shockTime")] DateTime ShockTime,
+		[property: JsonPropertyName("latitude")] float Latitude,
+		[property: JsonPropertyName("longitude")] float Longitude,
+		[property: JsonPropertyName("depth")] float Depth,
+		[property: JsonPropertyName("magnitude")] float Magnitude,
+		[property: JsonPropertyName("placeName")] string PlaceName,
+		[property: JsonPropertyName("updates")] int Updates,
+		[property: JsonPropertyName("locationDesc")] IReadOnlyCollection<string> LocationDesc
+	);
+}
