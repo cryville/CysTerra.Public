@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成FAN Studio API语音消息的组件。",
+		"$ExtensionName": "FAN Studio API TTS组件"
+	}
+}

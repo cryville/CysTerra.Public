@@ -1,0 +1,7 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成FAN Studio API語音消息嘅組件。",
+		"$ExtensionName": "FAN Studio API TTS組件"
+	}
+}
