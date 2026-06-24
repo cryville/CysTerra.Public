@@ -1,0 +1,11 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於處理台灣中央氣象署來源嘅資訊嘅通用組件。",
+		"$ExtensionName": "CWA通用組件",
+		"IntensitySuffixLevel": "級",
+		"IntensitySuffixLower": "弱",
+		"IntensitySuffixUpper": "強",
+		"IntensityUnknown": "不明"
+	}
+}

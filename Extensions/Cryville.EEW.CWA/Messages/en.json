@@ -1,0 +1,11 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Common components for processing information from Central Weather Administration (Taiwan).",
+		"$ExtensionName": "CWA common components",
+		"IntensitySuffixLevel": "",
+		"IntensitySuffixLower": "-lower",
+		"IntensitySuffixUpper": "-upper",
+		"IntensityUnknown": "unknown"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于处理台湾中央气象署来源的信息的通用组件。",
+		"$ExtensionName": "CWA通用组件",
+		"IntensitySuffixLevel": "级",
+		"IntensitySuffixLower": "弱",
+		"IntensitySuffixUpper": "强",
+		"IntensityUnknown": "不明"
+	}
+}
