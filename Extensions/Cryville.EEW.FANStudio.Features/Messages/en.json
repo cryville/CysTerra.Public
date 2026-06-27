@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from FAN Studio API.",
+		"$ExtensionName": "FAN Studio API feature components"
+	}
+}

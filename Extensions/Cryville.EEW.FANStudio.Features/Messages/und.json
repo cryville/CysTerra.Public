@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成FAN Studio API事件详情的组件。",
+		"$ExtensionName": "FAN Studio API事物组件"
+	}
+}

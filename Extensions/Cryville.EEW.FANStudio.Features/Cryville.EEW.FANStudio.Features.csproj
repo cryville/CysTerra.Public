@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.5</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.Features\Cryville.EEW.Features.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TagTypeKeys\Cryville.EEW.TagTypeKeys.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.Measure\Cryville.Measure.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.FANStudio\Cryville.EEW.FANStudio.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>
