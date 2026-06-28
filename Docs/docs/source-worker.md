@@ -260,6 +260,8 @@ A report is displayed in the report list like the following.
 - “Prop1 2.0”: [](xref:Cryville.EEW.Report.ReportModel.Properties)[1]
 - “Prop2 3.0”: [](xref:Cryville.EEW.Report.ReportModel.Properties)[2]
 
+The first item in the [](xref:Cryville.EEW.Report.ReportModel.Properties) list is considered the key property and is displayed emphasized on the left.
+
 For more information, see the API documentation of the [](xref:Cryville.EEW.Report.ReportModel) class.
 
 A report generator is built with a [builder](builder.md) exported with `[Export(typeof(IBuilder<IGenerator<ReportModel>>))]`.
