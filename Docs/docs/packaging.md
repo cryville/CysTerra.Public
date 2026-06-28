@@ -21,6 +21,11 @@ On the other hand, if `l` > `r`, by default CysTerra loads `B` but with a warnin
 > [!WARNING]
 > DO NOT apply [](xref:Cryville.EEW.ComponentModel.UsesSemanticVersioningAttribute) unless you fully understand and actually follow semantic versioning.
 
+## Licensing
+At the moment the CysTerra applications are all-rights-reserved. It is ideal to license your extension with the [GNU Lesser General Public License](https://www.gnu.org/licenses/lgpl-3.0.html) (LGPL) which allows the CysTerra applications to load your extension by dynamically linking to it.
+
+If you want to license your extension with GPL or AGPL, you can add an exception to your extension's license, giving permission to link it with the nonfree applications.
+
 ## Building the Package
 To generate a package for your extension, build the project with the “Release” configuration. You can switch the configuration in Visual Studio by using the configuration dropdown in the toolbar (the default configuration is “Debug”).
 
