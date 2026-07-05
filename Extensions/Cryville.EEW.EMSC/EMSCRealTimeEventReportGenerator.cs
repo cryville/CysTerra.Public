@@ -37,13 +37,13 @@ namespace Cryville.EEW.EMSC {
 
 			result.GroupKeys.Add(new HypocenterGroupKey(ev.Latitude, ev.Longitude, ev.Time.UtcDateTime, ev.Magnitude, ev.Depth));
 			result.Properties.Add(new(ev.MagnitudeType switch {
-				"mb" => "Magnitude:BodyWave",
-				"md" => "Magnitude:Duration",
-				"ml" => "Magnitude:Local",
-				"mw" => "Magnitude:Moment",
-				_ => "Magnitude",
+				"mb" => TagTypeKeys.MagnitudeBodyWave,
+				"md" => TagTypeKeys.MagnitudeDuration,
+				"ml" => TagTypeKeys.MagnitudeLocal,
+				"mw" => TagTypeKeys.MagnitudeMoment,
+				_ => TagTypeKeys.Magnitude,
 			}, ev.MagnitudeType, ev.Magnitude.ToString("0.0#", CultureInfo.InvariantCulture), context.SeverityScheme, ev.Magnitude) { AccuracyOrder = 30 });
-			result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), ev.Depth.ToString("0.##", culture)), context.SeverityScheme, ev.Depth) { AccuracyOrder = 30 });
+			result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), ev.Depth.ToString("0.##", culture)), context.SeverityScheme, ev.Depth) { AccuracyOrder = 30 });
 
 			return result;
 		}
