@@ -16,6 +16,8 @@ namespace Cryville.EEW.GlobalQuake {
 			40, 40, // M7+
 		];
 
+		readonly static TagTypeKey TagQualityGlobalQuake = "Quality:GlobalQuake";
+
 		public ReportModel Generate(GlobalQuakeReport e, IReportGeneratorContext? context, ref CultureInfo culture) {
 			ThrowHelper.ThrowIfNull(e);
 			context ??= EmptyReportGeneratorContext.Instance;
@@ -48,8 +50,8 @@ namespace Cryville.EEW.GlobalQuake {
 					(int)Math.Clamp((e.Magnitude + Math.Log10(e.Depth + 160) - Math.Log10(160)) * 2, 0, _timeoutTable.Length - 1)
 				]), TimeSpan.Zero);
 			}
-			result.Properties.Add(new("Magnitude", res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 90 });
-			result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth.ToString("F1", culture)), context.SeverityScheme, e.Depth) { AccuracyOrder = 90 });
+			result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 90 });
+			result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth.ToString("F1", culture)), context.SeverityScheme, e.Depth) { AccuracyOrder = 90 });
 			if (e.Quality is IHypocenterQualityData quality) {
 				string qualityLevel = quality.QualityLevel switch {
 					0 => "S",
@@ -61,7 +63,7 @@ namespace Cryville.EEW.GlobalQuake {
 					6 => "F",
 					_ => "?",
 				};
-				result.Properties.Add(new("Quality:GlobalQuake", res.GetStringRequired("PropertyQuality"), res.GetStringSetRequired("PropertyQualityValue").GetStringOrDefault(qualityLevel), context.SeverityScheme, qualityLevel) { AccuracyOrder = 90 });
+				result.Properties.Add(new(TagQualityGlobalQuake, res.GetStringRequired("PropertyQuality"), res.GetStringSetRequired("PropertyQualityValue").GetStringOrDefault(qualityLevel), context.SeverityScheme, qualityLevel) { AccuracyOrder = 90 });
 			}
 			return result;
 		}
