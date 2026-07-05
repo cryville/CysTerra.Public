@@ -34,7 +34,7 @@ namespace Cryville.EEW.FANStudio.Features {
 				{ Name, new Localized<string>(e.PlaceName, Local.TaiwanCulture) },
 			};
 			if (e.Depth is float depth)
-				f.Add(HypocenterDepth, new QuantityInc(depth, 0.5f, DerivedMeasures.Kilometre));
+				f.Add(HypocenterDepth, new QuantityInc(depth, 5f, DerivedMeasures.Kilometre));
 			return f;
 		}
 	}
