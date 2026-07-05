@@ -10,6 +10,9 @@ using System.Linq;
 
 namespace Cryville.EEW.JMAAtom {
 	public sealed class JMAAtomReportGenerator : IContextedGenerator<JMAReport, IReportGeneratorContext, ReportModel> {
+		readonly static TagTypeKey TagTsunamiWarningJMA = "TsunamiWarning:JMA";
+		readonly static TagTypeKey TagVolcanicWarningJMA = "VolcanicWarning:JMA";
+
 		public ReportModel Generate(JMAReport e, IReportGeneratorContext? context, ref CultureInfo culture) {
 			ThrowHelper.ThrowIfNull(e);
 			context ??= EmptyReportGeneratorContext.Instance;
@@ -135,7 +138,7 @@ namespace Cryville.EEW.JMAAtom {
 			}
 			if (maxHeightValue > 0) {
 				result.Properties.Add(new(
-					"TsunamiHeight",
+					TagTypeKeys.TsunamiHeight,
 					res.GetStringRequired("PropertyMaxTsunamiHeight"),
 					string.Format(culture, res.GetStringRequired("PropertyMaxTsunamiHeightValue"), maxHeightValue.ToString("F1", culture)),
 					context.SeverityScheme,
@@ -144,7 +147,7 @@ namespace Cryville.EEW.JMAAtom {
 			}
 			else {
 				result.Properties.Add(new(
-					"TsunamiHeight",
+					TagTypeKeys.TsunamiHeight,
 					res.GetStringRequired("PropertyMaxTsunamiHeight"),
 					res.GetStringSetRequired("PropertyMaxTsunamiHeightSpecialValue").GetString(maxHeightValue switch {
 						-1 => "欠測",
@@ -166,16 +169,16 @@ namespace Cryville.EEW.JMAAtom {
 				"71" or "72" or "73" => 0,
 				_ => -4,
 			});
-			result.Properties.Add(new("TsunamiWarning:JMA", null, res.GetStringSetRequired("PropertyTsunamiWarningValue").GetStringOrDefault(level.ToString(CultureInfo.InvariantCulture)), level / 4f) { AccuracyOrder = 70 });
+			result.Properties.Add(new(TagTsunamiWarningJMA, null, res.GetStringSetRequired("PropertyTsunamiWarningValue").GetStringOrDefault(level.ToString(CultureInfo.InvariantCulture)), level / 4f) { AccuracyOrder = 70 });
 			if (level < 0) result.InvalidatedTime = null;
 		}
 
 		static void GenerateFromIntensity(IReportGeneratorContext context, IMessageStringSet res, CultureInfo culture, ReportModel result, Intensity intensity, int accuracy) {
 			if (intensity.Observation is IntensityDetail observation) {
 				if (observation.MaxLgInt != null) {
-					result.Properties.Add(new("Intensity:JMALPGM", res.GetStringRequired("PropertyMaxLPGM"), observation.MaxLgInt, context.SeverityScheme, observation.MaxLgInt) { AccuracyOrder = accuracy });
+					result.Properties.Add(new(TagTypeKeys.IntensityJMALPGM, res.GetStringRequired("PropertyMaxLPGM"), observation.MaxLgInt, context.SeverityScheme, observation.MaxLgInt) { AccuracyOrder = accuracy });
 				}
-				result.Properties.Add(new("Intensity:JMA", res.GetStringRequired("PropertyMaxIntensity"), JMAMessageUtils.ToLongDisplayShindo(observation.MaxInt, culture), context.SeverityScheme, observation.MaxInt) { AccuracyOrder = accuracy });
+				result.Properties.Add(new(TagTypeKeys.IntensityJMA, res.GetStringRequired("PropertyMaxIntensity"), JMAMessageUtils.ToLongDisplayShindo(observation.MaxInt, culture), context.SeverityScheme, observation.MaxInt) { AccuracyOrder = accuracy });
 			}
 		}
 
@@ -205,11 +208,11 @@ namespace Cryville.EEW.JMAAtom {
 				result.GroupKeys.Add(new HypocenterGroupKey(coords.Latitude, coords.Longitude, eq.OriginTime.Value.UtcDateTime, magnitude, coords.Height / -1000));
 				if (coords.Height is double height) {
 					if (height == 0) {
-						result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), res.GetStringRequired("PropertyDepthValueVeryShallow"), context.SeverityScheme, 0) { AccuracyOrder = accuracy });
+						result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), res.GetStringRequired("PropertyDepthValueVeryShallow"), context.SeverityScheme, 0) { AccuracyOrder = accuracy });
 					}
 					else {
 						var h = -height / 1000;
-						result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), h), context.SeverityScheme, h) { AccuracyOrder = accuracy });
+						result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), h), context.SeverityScheme, h) { AccuracyOrder = accuracy });
 					}
 				}
 			}
@@ -261,7 +264,7 @@ namespace Cryville.EEW.JMAAtom {
 						result.Predicate = localFlag ? item.Kind.Name : res.GetStringSetRequired("PredicateVolcanic").GetStringOrDefault(item.Kind.Code, "52");
 					}
 					else if (code > 10) {
-						result.Properties.Add(new("VolcanicWarning:JMA", null, res.GetStringSetRequired("PropertyVolcanicWarningValue").GetStringOrDefault(item.Kind.Code), JMAMessageUtils.GetVolcanicWarningSeverity(item.Kind.Code)) { AccuracyOrder = 70 });
+						result.Properties.Add(new(TagVolcanicWarningJMA, null, res.GetStringSetRequired("PropertyVolcanicWarningValue").GetStringOrDefault(item.Kind.Code), JMAMessageUtils.GetVolcanicWarningSeverity(item.Kind.Code)) { AccuracyOrder = 70 });
 					}
 				}
 				if (item.EventTime is EventTime eventTime && eventTime.EventDateTime is JMADateTime time) {
@@ -281,11 +284,11 @@ namespace Cryville.EEW.JMAAtom {
 				return;
 			}
 			if (height.Condition == "噴煙なし") {
-				if (noWhitePlumeFlag) result.Properties.Add(new("PlumeHeightAboveCrater", null, res.GetStringRequired("PropertyPlumeHeightAboveCraterValueNone"), -1));
+				if (noWhitePlumeFlag) result.Properties.Add(new(TagTypeKeys.PlumeHeightAboveCrater, null, res.GetStringRequired("PropertyPlumeHeightAboveCraterValueNone"), -1) { AccuracyOrder = 10 });
 			}
 			else if (height.Condition == "不明") {
 				result.Properties.Add(new(
-					"PlumeHeightAboveCrater",
+					TagTypeKeys.PlumeHeightAboveCrater,
 					string.Format(culture, res.GetStringRequired("PropertyPlumeHeightAboveCrater"), type),
 					res.GetStringRequired("PropertyPlumeHeightAboveCraterValueUnknown"),
 					-1
@@ -293,7 +296,7 @@ namespace Cryville.EEW.JMAAtom {
 			}
 			else {
 				result.Properties.Add(new(
-					"PlumeHeightAboveCrater",
+					TagTypeKeys.PlumeHeightAboveCrater,
 					string.Format(culture, res.GetStringRequired("PropertyPlumeHeightAboveCrater"), type),
 					string.Format(culture, res.GetStringRequired("PropertyPlumeHeightAboveCraterValue"), height.Value / 1000f),
 					context.SeverityScheme,
