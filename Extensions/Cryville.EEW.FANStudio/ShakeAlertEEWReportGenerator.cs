@@ -28,8 +28,8 @@ namespace Cryville.EEW.FANStudio {
 			context.NameLocationTo(result, e.Latitude, e.Longitude, Local.UnitedStatesCulture, culture);
 			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, utcTime, e.Magnitude ?? 0, e.Depth));
 
-			if (e.Magnitude is float mag) result.Properties.Add(new("Magnitude", res.GetStringRequired("PropertyMagnitude"), mag.ToString("F1", culture), context.SeverityScheme, mag) { AccuracyOrder = 70 });
-			if (e.Depth is float depth) result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), depth.ToString("F0", culture)), context.SeverityScheme, depth) { AccuracyOrder = 70 });
+			if (e.Magnitude is float mag) result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), mag.ToString("F1", culture), context.SeverityScheme, mag) { AccuracyOrder = 70 });
+			if (e.Depth is float depth) result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), depth.ToString("F0", culture)), context.SeverityScheme, depth) { AccuracyOrder = 70 });
 			return result;
 		}
 

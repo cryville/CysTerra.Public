@@ -25,9 +25,9 @@ namespace Cryville.EEW.FANStudio {
 			result.Time = new(e.ShockTime, Local.TimeZoneOffset);
 			result.InvalidatedTime = new DateTimeOffset(e.ShockTime, Local.TimeZoneOffset) + TimeSpan.FromMinutes(5);
 			result.RevisionKey = new ReportRevisionKey(e.Updates);
-			result.Properties.Add(new("Magnitude:Richter", res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
+			result.Properties.Add(new(TagTypeKeys.MagnitudeRichter, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
 			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, TimeZoneInfo.ConvertTimeToUtc(e.ShockTime, result.TimeZone), e.Magnitude, e.Depth));
-			result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });
+			result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });
 			return result;
 		}
 		public static string ExtractIntensity(int epicenterIntensity) => epicenterIntensity switch {

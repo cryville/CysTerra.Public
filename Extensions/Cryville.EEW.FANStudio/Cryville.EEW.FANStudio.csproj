@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TagTypeKeys\Cryville.EEW.TagTypeKeys.csproj" Private="false" />
 		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
 		<ProjectReference Include="..\Cryville.EEW.CENC\Cryville.EEW.CENC.csproj" Private="false" />
 		<ProjectReference Include="..\Cryville.EEW.CWA\Cryville.EEW.CWA.csproj" Private="false" />

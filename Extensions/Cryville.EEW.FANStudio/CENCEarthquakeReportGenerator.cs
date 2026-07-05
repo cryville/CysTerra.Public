@@ -7,6 +7,8 @@ using System.Globalization;
 
 namespace Cryville.EEW.FANStudio {
 	public sealed class CENCEarthquakeReportGenerator : IContextedGenerator<CENCEarthquake, IReportGeneratorContext, ReportModel> {
+		readonly static TagTypeKey TagQualityCENC = "Quality:CENC";
+
 		public ReportModel Generate(CENCEarthquake? e, IReportGeneratorContext? context, ref CultureInfo culture) {
 			ThrowHelper.ThrowIfNull(e);
 			context ??= EmptyReportGeneratorContext.Instance;
@@ -31,16 +33,16 @@ namespace Cryville.EEW.FANStudio {
 
 			context.NameLocationTo(result, e.Latitude, e.Longitude, Local.Culture, culture);
 			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, TimeZoneInfo.ConvertTimeToUtc(e.ShockTime, result.TimeZone), e.Magnitude, e.Depth));
-			result.Properties.Add(new("Magnitude:SurfaceWave", res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = accuracy });
+			result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = accuracy });
 
 			if (result.Location == null) {
 				result.Location = localLocationName;
 				result.LocationSpecificity = CENCHelpers.GetSpecificity(localLocationName);
 			}
 
-			result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth), context.SeverityScheme, e.Depth) { AccuracyOrder = accuracy });
+			result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth), context.SeverityScheme, e.Depth) { AccuracyOrder = accuracy });
 
-			result.Properties.Add(new("Quality:CENC", null, res.GetStringRequired(reviewedFlag ? "PropertyQualityValueReviewed" : "PropertyQualityValueAutomatic"), -1) { AccuracyOrder = accuracy });
+			result.Properties.Add(new(TagQualityCENC, null, res.GetStringRequired(reviewedFlag ? "PropertyQualityValueReviewed" : "PropertyQualityValueAutomatic"), -1) { AccuracyOrder = accuracy });
 			return result;
 		}
 

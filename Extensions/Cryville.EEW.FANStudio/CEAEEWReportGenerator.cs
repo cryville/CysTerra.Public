@@ -27,9 +27,11 @@ namespace Cryville.EEW.FANStudio {
 			context.NameLocationTo(result, e.Latitude, e.Longitude, Local.Culture, culture);
 			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, TimeZoneInfo.ConvertTimeToUtc(e.ShockTime, result.TimeZone), e.Magnitude, e.Depth));
 			result.RevisionKey = new ReportRevisionKey(e.Updates);
-			if (e.EpicenterIntensity is float epiIntensity) result.Properties.Add(RomanNumerals.CreateRomanIntensityProperty("Intensity:CSIS", res.GetStringRequired("PropertyMaxIntensity"), epiIntensity, culture, context.SeverityScheme, 70));
-			result.Properties.Add(new("Magnitude:SurfaceWave", res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
-			if (e.Depth is float depth) result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), depth.ToString("F0", culture)), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });
+			if (e.EpicenterIntensity is float epiIntensity)
+				result.Properties.Add(RomanNumerals.CreateRomanIntensityProperty(TagTypeKeys.IntensityCSIS, res.GetStringRequired("PropertyMaxIntensity"), epiIntensity, culture, context.SeverityScheme, 70));
+			result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
+			if (e.Depth is float depth)
+				result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), depth.ToString("F0", culture)), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });
 			return result;
 		}
 

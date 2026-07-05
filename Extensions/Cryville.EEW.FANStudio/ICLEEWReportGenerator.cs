@@ -28,9 +28,9 @@ namespace Cryville.EEW.FANStudio {
 			}
 			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, TimeZoneInfo.ConvertTimeToUtc(e.ShockTime, result.TimeZone), e.Magnitude, e.Depth));
 			result.RevisionKey = new ReportRevisionKey(e.Updates);
-			result.Properties.Add(RomanNumerals.CreateRomanIntensityProperty("Intensity:CSIS", res.GetStringRequired("PropertyMaxIntensity"), e.EpicenterIntensity, culture, context.SeverityScheme, 70));
-			result.Properties.Add(new("Magnitude:SurfaceWave", res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
-			result.Properties.Add(new("HypocenterDepth", res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth.ToString("F0", culture)), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });
+			result.Properties.Add(RomanNumerals.CreateRomanIntensityProperty(TagTypeKeys.IntensityCSIS, res.GetStringRequired("PropertyMaxIntensity"), e.EpicenterIntensity, culture, context.SeverityScheme, 70));
+			result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
+			result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth.ToString("F0", culture)), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });
 			return result;
 		}
 
