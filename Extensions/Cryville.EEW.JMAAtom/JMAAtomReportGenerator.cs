@@ -143,7 +143,7 @@ namespace Cryville.EEW.JMAAtom {
 					string.Format(culture, res.GetStringRequired("PropertyMaxTsunamiHeightValue"), maxHeightValue.ToString("F1", culture)),
 					context.SeverityScheme,
 					maxHeightValue
-				) { Condition = conditionStr });
+				) { Condition = conditionStr, AccuracyOrder = 10 });
 			}
 			else {
 				result.Properties.Add(new(
@@ -157,7 +157,7 @@ namespace Cryville.EEW.JMAAtom {
 					}) ?? "",
 					context.SeverityScheme,
 					maxHeightValue >= 0 ? maxHeightValue : null
-				) { Condition = conditionStr });
+				) { Condition = conditionStr, AccuracyOrder = 10 });
 			}
 		}
 
@@ -292,7 +292,7 @@ namespace Cryville.EEW.JMAAtom {
 					string.Format(culture, res.GetStringRequired("PropertyPlumeHeightAboveCrater"), type),
 					res.GetStringRequired("PropertyPlumeHeightAboveCraterValueUnknown"),
 					-1
-				));
+				) { AccuracyOrder = 100 });
 			}
 			else {
 				result.Properties.Add(new(
@@ -301,7 +301,10 @@ namespace Cryville.EEW.JMAAtom {
 					string.Format(culture, res.GetStringRequired("PropertyPlumeHeightAboveCraterValue"), height.Value / 1000f),
 					context.SeverityScheme,
 					height.Value
-				) { Condition = height.Condition != null ? (localFlag ? height.Condition : res.GetStringSetRequired("PropertyPlumeHeightAboveCraterValueCondition").GetString(height.Condition)) : null });
+				) {
+					Condition = height.Condition != null ? (localFlag ? height.Condition : res.GetStringSetRequired("PropertyPlumeHeightAboveCraterValueCondition").GetString(height.Condition)) : null,
+					AccuracyOrder = 10,
+				});
 			}
 		}
 
