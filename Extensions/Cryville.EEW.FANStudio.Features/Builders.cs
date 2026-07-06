@@ -79,4 +79,9 @@ namespace Cryville.EEW.FANStudio.Features {
 	public class ShanxiEarthquakeFeatureGeneratorBuilder : SimpleBuilder<ShanxiEarthquakeFeatureGenerator> {
 		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(ShanxiEarthquake), ref culture);
 	}
+
+	[Export(typeof(IBuilder<IGenerator<Feature>>))]
+	public class YunnanEarthquakeFeatureGeneratorBuilder : SimpleBuilder<YunnanEarthquakeFeatureGenerator> {
+		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(YunnanEarthquake), ref culture);
+	}
 }
