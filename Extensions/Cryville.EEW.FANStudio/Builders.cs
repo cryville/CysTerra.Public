@@ -10,7 +10,7 @@ namespace Cryville.EEW.FANStudio {
 	[Export(typeof(IBuilder<ISourceWorker>))]
 	public class FANStudioAllWorkerBuilder : IBuilder<FANStudioAllWorker> {
 		public string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName("$Multiple", ref culture);
-		public FANStudioAllWorker Build(ref CultureInfo? culture) => new(new("wss://ws.fanstudio.tech/all"));
+		public FANStudioAllWorker Build(ref CultureInfo? culture) => new(new("wss://ws.fanstudio.tech/all"), FANStudioSourceTypeInfoProvider.Instance);
 	}
 
 	[Export(typeof(IBuilder<ISourceWorker>))]
@@ -51,9 +51,11 @@ namespace Cryville.EEW.FANStudio {
 			};
 		}
 		static FANStudioWorker<T> Build<T>() where T : class {
-			if (!FANStudioAllWorker._sourceNameMap.TryGetValue(typeof(T), out var source))
+			if (!FANStudioSourceTypeInfoProvider.Instance.TryGetSource(typeof(T), out string? source))
 				throw new NotSupportedException();
-			return new(new(new("wss://ws.fanstudio.tech/"), source));
+			if (!FANStudioSourceTypeInfoProvider.Instance.TryGetTypeInfo(source, out var typeInfo))
+				throw new NotSupportedException();
+			return new(new(new("wss://ws.fanstudio.tech/"), source), typeInfo);
 		}
 	}
 

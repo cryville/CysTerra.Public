@@ -9,33 +9,12 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cryville.EEW.FANStudio {
 	public class FANStudioAllWorker : WebSocketWorker, ISourceWorker, IPropertiesHolder {
-		internal static readonly Dictionary<Type, string> _sourceNameMap = [];
-		static readonly Dictionary<string, JsonTypeInfo> _sourceTypeInfoMap = [];
-		static readonly Dictionary<FANStudioSource, string> _sourceEnumNameMap = [];
-		static FANStudioAllWorker() {
-			foreach (var p in typeof(FANStudioInitialAllMessage).GetProperties()) {
-				var propertyType = p.PropertyType;
-				if (!propertyType.IsGenericType || propertyType.GetGenericTypeDefinition() != typeof(FANStudioData<>)) continue;
-				var type = propertyType.GetGenericArguments()[0];
-				var name = p.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? p.Name;
-				var typeInfo = SerializerContext.Default.GetTypeInfo(type);
-				if (typeInfo == null) continue;
-				_sourceNameMap.Add(type, name);
-				_sourceTypeInfoMap.Add(name, typeInfo);
-				if (Enum.TryParse<FANStudioSource>(type.Name, out var sourceEnum)) {
-					_sourceEnumNameMap.Add(sourceEnum, name);
-				}
-			}
-		}
-
-		public string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(ref culture);
+		public virtual string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(ref culture);
 
 		public event Handler<object>? Received;
 		public event Handler<Heartbeat>? Heartbeat;
@@ -56,17 +35,19 @@ namespace Cryville.EEW.FANStudio {
 				MapFilter();
 			}
 		}
-		[MemberNotNull(nameof(_sourceFilter))]
-		void MapFilter() {
-			_sourceFilter = [.. m_filter.Select(i => _sourceEnumNameMap.TryGetValue(i, out string? source) ? source : "")];
+		protected virtual IEnumerable<FANStudioSource> EnumerateFilter() => m_filter;
+		protected void MapFilter() {
+			_sourceFilter = [.. EnumerateFilter().Select(i => _typeInfoProvider.TryGetSource(i, out string? source) ? source : "")];
 		}
 		ISet<FANStudioSource> m_filter = (HashSet<FANStudioSource>)[];
-		HashSet<string> _sourceFilter;
+		HashSet<string> _sourceFilter = [];
 		[Obsolete("Use the Filter property.")]
 		public void SetFilter(IEnumerable<string> filter) => _sourceFilter = [.. filter];
 
-		public FANStudioAllWorker(Uri uri) : base(uri) {
-			MapFilter();
+		readonly FANStudioSourceTypeInfoProvider _typeInfoProvider;
+
+		public FANStudioAllWorker(Uri uri, FANStudioSourceTypeInfoProvider typeInfoProvider) : base(uri) {
+			_typeInfoProvider = typeInfoProvider;
 		}
 
 		readonly Dictionary<string, (HashSet<string>, Queue<string>)> _history = [];
@@ -74,32 +55,38 @@ namespace Cryville.EEW.FANStudio {
 		protected override async Task Handle(Stream stream, CancellationToken cancellationToken) {
 			try {
 				var e = await JsonSerializer.DeserializeAsync(stream, SerializerContext.Default.FANStudioMessage, cancellationToken).ConfigureAwait(true) ?? throw new JsonException("Null event.");
-				if (e is FANStudioInitialAllMessage initialAllMsg) {
-					foreach (var ev in initialAllMsg.Enumerate()) {
-						if (ev.Data is not object data)
-							continue;
-						if (!_sourceNameMap.TryGetValue(data.GetType(), out var source))
-							continue;
-						if (!_sourceFilter.Contains(source))
-							continue;
-						HandleData(source, data, ev.MD5, false);
-					}
-				}
-				else if (e is FANStudioUpdateMessage updateMsg) {
-					string source = updateMsg.Source;
-					if (!_sourceFilter.Contains(source))
-						return;
-					if (!_sourceTypeInfoMap.TryGetValue(source, out var typeInfo))
-						return;
-					var ev = updateMsg.Data.Deserialize(typeInfo) ?? throw new JsonException("Null event.");
-					HandleData(source, ev, updateMsg.MD5, true);
-				}
+				HandleMessage(e);
 			}
 			catch (JsonException ex) {
 				ErrorEmitted?.Invoke(this, ex);
 			}
 			catch (NotSupportedException ex) {
 				ErrorEmitted?.Invoke(this, ex);
+			}
+		}
+
+		protected virtual void HandleMessage(FANStudioMessage e) {
+			if (e is FANStudioInitialAllMessage initialAllMsg) {
+				if (initialAllMsg.Data is not { } allData)
+					return;
+				foreach (var data in allData) {
+					string source = data.Key;
+					if (!_typeInfoProvider.TryGetWrappedDataTypeInfo(source, out var typeInfo))
+						continue;
+					if (!_sourceFilter.Contains(source))
+						continue;
+					var ev = (IFANStudioData<object>)(data.Value.Deserialize(typeInfo) ?? throw new JsonException("Null event."));
+					HandleData(source, ev.Data, ev.MD5, false);
+				}
+			}
+			else if (e is FANStudioUpdateMessage updateMsg) {
+				string source = updateMsg.Source;
+				if (!_sourceFilter.Contains(source))
+					return;
+				if (!_typeInfoProvider.TryGetTypeInfo(source, out var typeInfo))
+					return;
+				var ev = updateMsg.Data.Deserialize(typeInfo) ?? throw new JsonException("Null event.");
+				HandleData(source, ev, updateMsg.MD5, true);
 			}
 		}
 
