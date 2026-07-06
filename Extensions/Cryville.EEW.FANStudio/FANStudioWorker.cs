@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
+using System.Net.WebSockets;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
 using System.Threading;
@@ -19,7 +20,7 @@ namespace Cryville.EEW.FANStudio {
 
 		readonly HashSet<string> _historySet = [];
 		readonly Queue<string> _historyList = [];
-		protected override async Task Handle(Stream stream, CancellationToken cancellationToken) {
+		protected override async Task Handle(Stream stream, WebSocketMessageType messageType, CancellationToken cancellationToken) {
 			try {
 				var e = await JsonSerializer.DeserializeAsync(stream, SerializerContext.Default.FANStudioMessage, cancellationToken).ConfigureAwait(true) ?? throw new JsonException("Null event.");
 				HandleMessage(e);
