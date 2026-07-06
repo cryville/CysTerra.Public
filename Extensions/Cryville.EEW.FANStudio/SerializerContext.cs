@@ -12,6 +12,7 @@ namespace Cryville.EEW.FANStudio {
 	[JsonSerializable(typeof(FANStudioData<GuangxiEarthquake>))]
 	[JsonSerializable(typeof(FANStudioData<ShanxiEarthquake>))]
 	[JsonSerializable(typeof(FANStudioData<BeijingEarthquake>))]
+	[JsonSerializable(typeof(FANStudioData<YunnanEarthquake>))]
 	[JsonSerializable(typeof(FANStudioData<CWAEEW>))]
 	[JsonSerializable(typeof(FANStudioData<HKOEarthquake>))]
 	[JsonSerializable(typeof(FANStudioData<USGSEarthquake>))]

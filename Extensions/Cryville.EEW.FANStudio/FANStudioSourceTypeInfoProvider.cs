@@ -23,7 +23,7 @@ namespace Cryville.EEW.FANStudio {
 			yield return ("guangxi", FANStudioSource.GuangxiEarthquake, SerializerContext.Default.FANStudioDataGuangxiEarthquake);
 			yield return ("shanxi", FANStudioSource.ShanxiEarthquake, SerializerContext.Default.FANStudioDataShanxiEarthquake);
 			yield return ("beijing", FANStudioSource.BeijingEarthquake, SerializerContext.Default.FANStudioDataBeijingEarthquake);
-			// yield return ("yunnan", FANStudioSource.YunnanEarthquake, SerializerContext.Default.FANStudioDataYunnanEarthquake);
+			yield return ("yunnan", FANStudioSource.YunnanEarthquake, SerializerContext.Default.FANStudioDataYunnanEarthquake);
 			// yield return ("cwa", FANStudioSource.CWAEarthquake, SerializerContext.Default.FANStudioDataCWAEarthquake);
 			yield return ("cwa-eew", FANStudioSource.CWAEEW, SerializerContext.Default.FANStudioDataCWAEEW);
 			yield return ("hko", FANStudioSource.HKOEarthquake, SerializerContext.Default.FANStudioDataHKOEarthquake);

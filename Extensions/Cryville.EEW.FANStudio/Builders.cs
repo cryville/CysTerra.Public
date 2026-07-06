@@ -32,7 +32,7 @@ namespace Cryville.EEW.FANStudio {
 				FANStudioSource.GuangxiEarthquake => Build<GuangxiEarthquake>(),
 				FANStudioSource.ShanxiEarthquake => Build<ShanxiEarthquake>(),
 				FANStudioSource.BeijingEarthquake => Build<BeijingEarthquake>(),
-				// FANStudioSource.YunnanEarthquake => Build<YunnanEarthquake>(),
+				FANStudioSource.YunnanEarthquake => Build<YunnanEarthquake>(),
 				// FANStudioSource.CWAEarthquake => Build<CWAEarthquake>(),
 				FANStudioSource.CWAEEW => Build<CWAEEW>(),
 				// FANStudioSource.JMAEEW => Build<JMAEEW>(),
@@ -87,6 +87,11 @@ namespace Cryville.EEW.FANStudio {
 	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
 	public class BeijingEarthquakeReportGeneratorBuilder : SimpleBuilder<BeijingEarthquakeReportGenerator> {
 		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(BeijingEarthquake), ref culture);
+	}
+
+	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
+	public class YunnanEarthquakeReportGeneratorBuilder : SimpleBuilder<YunnanEarthquakeReportGenerator> {
+		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(YunnanEarthquake), ref culture);
 	}
 
 	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
