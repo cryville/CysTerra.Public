@@ -35,7 +35,7 @@ namespace Cryville.EEW.FANStudio {
 			yield return ("usp", FANStudioSource.USPEarthquake, SerializerContext.Default.FANStudioDataUSPEarthquake);
 			yield return ("kma", FANStudioSource.KMAEarthquake, SerializerContext.Default.FANStudioDataKMAEarthquake);
 			// yield return ("kma-eew", FANStudioSource.KMAEEW, SerializerContext.Default.FANStudioDataKMAEEW);
-			yield return ("fssn", FANStudioSource.FSSNCMT, SerializerContext.Default.FANStudioDataFSSNEarthquake);
+			yield return ("fssn", FANStudioSource.FSSNEarthquake, SerializerContext.Default.FANStudioDataFSSNEarthquake);
 			// yield return ("fssn-cmt", FANStudioSource.FSSNCMT, SerializerContext.Default.FANStudioDataFSSNCMT);
 		}
 		bool _init;
