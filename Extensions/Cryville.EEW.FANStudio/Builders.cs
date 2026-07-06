@@ -70,16 +70,6 @@ namespace Cryville.EEW.FANStudio {
 	}
 
 	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
-	public class SichuanEEWReportGeneratorBuilder : SimpleBuilder<SichuanEEWReportGenerator> {
-		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(SichuanEEW), ref culture);
-	}
-
-	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
-	public class ICLEEWReportGeneratorBuilder : SimpleBuilder<ICLEEWReportGenerator> {
-		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(ICLEEW), ref culture);
-	}
-
-	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
 	public class NingxiaEarthquakeReportGeneratorBuilder : SimpleBuilder<NingxiaEarthquakeReportGenerator> {
 		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(NingxiaEarthquake), ref culture);
 	}
@@ -92,11 +82,6 @@ namespace Cryville.EEW.FANStudio {
 	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
 	public class ShanxiEarthquakeReportGeneratorBuilder : SimpleBuilder<ShanxiEarthquakeReportGenerator> {
 		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(ShanxiEarthquake), ref culture);
-	}
-
-	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]
-	public class FujianEEWReportGeneratorBuilder : SimpleBuilder<FujianEEWReportGenerator> {
-		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(FujianEEW), ref culture);
 	}
 
 	[Export(typeof(IBuilder<IGenerator<ReportModel>>))]

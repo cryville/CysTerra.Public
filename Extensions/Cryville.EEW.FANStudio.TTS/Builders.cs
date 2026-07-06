@@ -16,16 +16,6 @@ namespace Cryville.EEW.FANStudio.TTS {
 	}
 
 	[Export(typeof(IBuilder<IGenerator<TTSEntry>>))]
-	public class SichuanEEWTTSMessageGeneratorBuilder : SimpleBuilder<SichuanEEWTTSMessageGenerator> {
-		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(SichuanEEW), ref culture);
-	}
-
-	[Export(typeof(IBuilder<IGenerator<TTSEntry>>))]
-	public class ICLEEWTTSMessageGeneratorBuilder : SimpleBuilder<ICLEEWTTSMessageGenerator> {
-		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(ICLEEW), ref culture);
-	}
-
-	[Export(typeof(IBuilder<IGenerator<TTSEntry>>))]
 	public class NingxiaEarthquakeTTSMessageGeneratorBuilder : SimpleBuilder<NingxiaEarthquakeTTSMessageGenerator> {
 		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(NingxiaEarthquake), ref culture);
 	}
@@ -38,11 +28,6 @@ namespace Cryville.EEW.FANStudio.TTS {
 	[Export(typeof(IBuilder<IGenerator<TTSEntry>>))]
 	public class ShanxiEarthquakeTTSMessageGeneratorBuilder : SimpleBuilder<ShanxiEarthquakeTTSMessageGenerator> {
 		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(ShanxiEarthquake), ref culture);
-	}
-
-	[Export(typeof(IBuilder<IGenerator<TTSEntry>>))]
-	public class FujianEEWTTSMessageGeneratorBuilder : SimpleBuilder<FujianEEWTTSMessageGenerator> {
-		public override string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(nameof(FujianEEW), ref culture);
 	}
 
 	[Export(typeof(IBuilder<IGenerator<TTSEntry>>))]
