@@ -3,6 +3,7 @@
 	"Strings": {
 		"$ExtensionDesc": "Core components for receiving and processing information from FAN Studio API.",
 		"$ExtensionName": "FAN Studio API event source components",
+		"ErrorServer": "Received an error message from the server: {0}",
 		"PNFilter": "Filter",
 		"PDFilter": "The sources to receive.",
 		"PNSource": "Source",

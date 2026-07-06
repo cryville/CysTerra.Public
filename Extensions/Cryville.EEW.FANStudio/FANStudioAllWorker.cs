@@ -88,6 +88,11 @@ namespace Cryville.EEW.FANStudio {
 				var ev = updateMsg.Data.Deserialize(typeInfo) ?? throw new JsonException("Null event.");
 				HandleData(source, ev, updateMsg.MD5, true);
 			}
+			else if (e is FANStudioErrorMessage errorMsg) {
+				using var lres = new LocalizedResource("", SharedCultures.CurrentUICulture);
+				var res = lres.RootMessageStringSet;
+				ErrorEmitted?.Invoke(this, new InvalidOperationException(string.Format(SharedCultures.CurrentCulture, res.GetStringRequired("ErrorServer"), errorMsg.Message)));
+			}
 		}
 
 		void HandleData(string source, object ev, string? hash, bool isUpdate) {

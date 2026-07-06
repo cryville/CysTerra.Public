@@ -7,6 +7,10 @@ using System.Text.Json.Serialization;
 namespace Cryville.EEW.FANStudio.Model {
 	[JsonPolymorphic(TypeDiscriminatorPropertyName = "type", IgnoreUnrecognizedTypeDiscriminators = true)]
 	[JsonDerivedType(typeof(FANStudioHeartbeatMessage), "heartbeat")]
+	[JsonDerivedType(typeof(FANStudioAuthRequiredMessage), "auth_required")]
+	[JsonDerivedType(typeof(FANStudioAuthSuccessMessage), "auth_success")]
+	[JsonDerivedType(typeof(FANStudioAuthFailureMessage), "auth_fail")]
+	[JsonDerivedType(typeof(FANStudioErrorMessage), "error")]
 	[JsonDerivedType(typeof(FANStudioDataMessage), "initial")]
 	[JsonDerivedType(typeof(FANStudioInitialAllMessage), "initial_all")]
 	[JsonDerivedType(typeof(FANStudioUpdateMessage), "update")]
@@ -17,6 +21,14 @@ namespace Cryville.EEW.FANStudio.Model {
 		[property: JsonPropertyName("id")] Guid ID,
 		[property: JsonPropertyName("timestamp")] long Timestamp
 	) : FANStudioMessage;
+
+	public record FANStudioSimpleMessage(
+		[property: JsonPropertyName("message")] string Message
+	) : FANStudioMessage;
+	public record FANStudioAuthRequiredMessage(string Message) : FANStudioSimpleMessage(Message);
+	public record FANStudioAuthSuccessMessage(string Message) : FANStudioSimpleMessage(Message);
+	public record FANStudioAuthFailureMessage(string Message) : FANStudioSimpleMessage(Message);
+	public record FANStudioErrorMessage(string Message) : FANStudioSimpleMessage(Message);
 
 	public record FANStudioDataMessage(
 		JsonElement Data,

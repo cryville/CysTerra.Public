@@ -3,6 +3,7 @@
 	"Strings": {
 		"$ExtensionDesc": "用於接收及處理FAN Studio API來源嘅資訊嘅核心組件。",
 		"$ExtensionName": "FAN Studio API事件源組件",
+		"ErrorServer": "接收到服務器發送嘅錯誤消息：{0}",
 		"PNFilter": "篩選項",
 		"PDFilter": "要接收嘅事件源。",
 		"PNSource": "事件源",

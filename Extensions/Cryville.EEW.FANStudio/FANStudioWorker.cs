@@ -44,6 +44,11 @@ namespace Cryville.EEW.FANStudio {
 					Received?.Invoke(this, ev);
 				}
 			}
+			else if (e is FANStudioErrorMessage errorMsg) {
+				using var lres = new LocalizedResource("", SharedCultures.CurrentUICulture);
+				var res = lres.RootMessageStringSet;
+				ErrorEmitted?.Invoke(this, new InvalidOperationException(string.Format(SharedCultures.CurrentCulture, res.GetStringRequired("ErrorServer"), errorMsg.Message)));
+			}
 		}
 
 		protected override void OnHeartbeat() => Heartbeat?.Invoke(this, EEW.Heartbeat.Instance);
