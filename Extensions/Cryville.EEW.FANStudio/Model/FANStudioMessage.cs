@@ -38,12 +38,10 @@ namespace Cryville.EEW.FANStudio.Model {
 	public interface IFANStudioData<out T> {
 		T Data { get; }
 		string MD5 { get; }
-		string? Source { get; }
 	}
 	public record FANStudioData<T>(
 		T Data,
-		[property: JsonPropertyName("md5")] string MD5,
-		[property: JsonPropertyName("source")] string Source
+		[property: JsonPropertyName("md5")] string MD5
 	) : IFANStudioData<T>;
 
 	public record FANStudioInitialAllMessage : FANStudioMessage {
