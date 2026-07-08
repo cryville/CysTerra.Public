@@ -1,0 +1,9 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from Wolfx Disaster Prevention API.",
+		"$ExtensionName": "Wolfx feature components",
+		"PNUseRawLocationName": "Use original location name",
+		"PDUseRawLocationName": "Use the original location name that is not formatted by Wolfx"
+	}
+}

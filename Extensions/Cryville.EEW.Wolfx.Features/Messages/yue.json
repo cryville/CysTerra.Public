@@ -1,0 +1,9 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成Wolfx防災API事件詳細嘅組件。",
+		"$ExtensionName": "Wolfx事物組件",
+		"PNUseRawLocationName": "使用原始地名",
+		"PDUseRawLocationName": "使用未經Wolfx格式處理嘅原始地名"
+	}
+}
