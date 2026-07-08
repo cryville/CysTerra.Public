@@ -1,0 +1,27 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from Wolfx Disaster Prevention API.",
+		"$ExtensionName": "Wolfx event source components",
+		"PNFilter": "Filter",
+		"PDFilter": "The sources to receive.",
+		"PDUseRawLocationName": "Use the original location name that is not formatted by Wolfx",
+		"PNUseRawLocationName": "Use original location name",
+		"SourceName": "Wolfx",
+		"SourceNameTyped": "Wolfx ({0})"
+	},
+	"StringSets": {
+		"SourceNameTypes": {
+			"Strings": {
+				"CENCEarthquake": "CENC earthquake information",
+				"CENCEEW": "CENC EEW",
+				"ChongqingEEW": "CEA (Chongqing) EEW",
+				"CWAEEW": "CWA (Taiwan) EEW",
+				"FujianEEW": "FEA (Fujian) EEW",
+				"JMAEarthquake": "JMA earthquake information",
+				"JMAEEW": "JMA (Japan) EEW",
+				"SichuanEEW": "SEA (Sichuan) EEW"
+			}
+		}
+	}
+}

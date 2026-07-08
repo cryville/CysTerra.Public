@@ -1,0 +1,27 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于接收及处理Wolfx防灾API来源的信息的核心组件。",
+		"$ExtensionName": "Wolfx事件源组件",
+		"PNFilter": "筛选项",
+		"PDFilter": "要接收的事件源。",
+		"PDUseRawLocationName": "使用未经Wolfx格式处理的原始地名",
+		"PNUseRawLocationName": "使用原始地名",
+		"SourceName": "Wolfx",
+		"SourceNameTyped": "Wolfx（{0}）"
+	},
+	"StringSets": {
+		"SourceNameTypes": {
+			"Strings": {
+				"CENCEarthquake": "中国地震台网中心地震信息",
+				"CENCEEW": "中国地震台网地震预警",
+				"ChongqingEEW": "重庆市地震局地震预警",
+				"CWAEEW": "台湾中央气象署地震预警",
+				"FujianEEW": "福建省地震局地震预警",
+				"JMAEarthquake": "日本气象厅地震信息",
+				"JMAEEW": "日本气象厅紧急地震速报",
+				"SichuanEEW": "四川省地震局地震预警"
+			}
+		}
+	}
+}
