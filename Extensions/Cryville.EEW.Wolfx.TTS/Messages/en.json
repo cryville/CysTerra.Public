@@ -1,0 +1,9 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating TTS messages from Wolfx Disaster Prevention API.",
+		"$ExtensionName": "Wolfx TTS components",
+		"PNUseRawLocationName": "Use original location name",
+		"PDUseRawLocationName": "Use the original location name that is not formatted by Wolfx"
+	}
+}

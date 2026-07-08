@@ -1,0 +1,9 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成Wolfx防灾API语音消息的组件。",
+		"$ExtensionName": "Wolfx TTS组件",
+		"PNUseRawLocationName": "使用原始地名",
+		"PDUseRawLocationName": "使用未经Wolfx格式处理的原始地名"
+	}
+}

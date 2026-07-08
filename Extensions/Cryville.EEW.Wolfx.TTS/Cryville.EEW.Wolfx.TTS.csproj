@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.7</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TTS\Cryville.EEW.TTS.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.Wolfx\Cryville.EEW.Wolfx.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>
