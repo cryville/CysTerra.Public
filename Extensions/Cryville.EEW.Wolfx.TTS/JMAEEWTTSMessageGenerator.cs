@@ -23,7 +23,7 @@ namespace Cryville.EEW.Wolfx.TTS {
 			if (e.EventId is not string id) return null;
 			else if (e.Status is JMAEEWStatus.GeneralCancellation or JMAEEWStatus.DrillingCancellation) {
 				_states.Invalidate(id);
-				return new(culture, null, res.GetStringRequired("Cancel"), -110, "jp/eewC");
+				return new(culture, null, res.GetStringRequired("Cancel"), -110, "eew_update_cancel");
 			}
 			else if (e.HypocenterCode == null) return null;
 			else return GenerateCore(e, context, culture, res, id);
@@ -63,10 +63,16 @@ namespace Cryville.EEW.Wolfx.TTS {
 				resAreaEpicenter.GetString(e.HypocenterCode), JMAMessageUtils.ToLongDisplayShindo(e.MaxIntensity, culture)
 			));
 			return new(
-				culture, null, sb.ToString(), e.ForecastType == JMAEEWForecastType.Warning ? -105 : -100, pr.IsNewId ? "jp/eew0" : (e.SerialType == JMAEEWSerialType.Final ? "jp/koushinE" : "jp/koushin")
-			) {
-				UrgentEntry = pr.HasNewMaxState && soundLevel >= 3 ? new(culture, null, "", 1000, soundLevel switch { >= 5 => "jp/eew5", _ => "jp/eew3" }) : null
-			};
+				culture, null, sb.ToString(),
+				e.ForecastType == JMAEEWForecastType.Warning ? -105 : -100,
+				pr.HasNewMaxState ? soundLevel switch {
+					< 3 => "eew_1",
+					3 => "eew_2",
+					4 => "eew_3",
+					5 => "eew_4",
+					>= 6 => "eew_5",
+				} : (e.SerialType == JMAEEWSerialType.Final ? "eew_update_final" : "eew_update")
+			);
 		}
 
 		static readonly float[] _groupingRatios = [0, 0.5f];
