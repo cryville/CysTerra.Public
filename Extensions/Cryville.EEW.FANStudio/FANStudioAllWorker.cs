@@ -35,7 +35,7 @@ namespace Cryville.EEW.FANStudio {
 				MapFilter();
 			}
 		}
-		protected virtual IEnumerable<FANStudioSource> EnumerateFilter() => m_filter;
+		protected virtual IEnumerable<FANStudioSource> EnumerateFilter() => m_filter.Concat(m_authorizedFilter.Cast<FANStudioSource>());
 		protected void MapFilter() {
 			_sourceFilter = [.. EnumerateFilter().Select(i => _typeInfoProvider.TryGetSource(i, out string? source) ? source : "")];
 		}
@@ -44,10 +44,46 @@ namespace Cryville.EEW.FANStudio {
 		[Obsolete("Use the Filter property.")]
 		public void SetFilter(IEnumerable<string> filter) => _sourceFilter = [.. filter];
 
+		[LocalizableDisplayName("PNAuthorizedFilter")]
+		[LocalizableDescription("PDAuthorizedFilter")]
+		[SuppressMessage("Usage", "CA2227", Justification = "Component property")]
+		[SuppressMessage("CodeQuality", "IDE0079", Justification = "False report")]
+		public ISet<FANStudioAuthorizedSource> AuthorizedFilter {
+			get => m_authorizedFilter;
+			set {
+				m_authorizedFilter = value;
+				MapFilter();
+			}
+		}
+		ISet<FANStudioAuthorizedSource> m_authorizedFilter = (HashSet<FANStudioAuthorizedSource>)[];
+
+#if NET5_0_OR_GREATER
+		[RequiresUnreferencedCode("PropertyDescriptor's PropertyType cannot be statically discovered.")]
+#endif
+		public IEnumerable<PropertyDescriptor> GetProperties() {
+			var props = TypeDescriptor.GetProperties(this).OfType<PropertyDescriptor>().Where(p => p.IsBrowsable && !p.IsReadOnly);
+			if (string.IsNullOrEmpty(_authKey))
+				props = props.Where(p => p.Name != nameof(AuthorizedFilter));
+			return props;
+		}
+
 		readonly FANStudioSourceTypeInfoProvider _typeInfoProvider;
 
-		public FANStudioAllWorker(Uri uri, FANStudioSourceTypeInfoProvider typeInfoProvider) : base(uri) {
+		readonly string? _authKey;
+
+		public FANStudioAllWorker(Uri uri, string? authKey, FANStudioSourceTypeInfoProvider typeInfoProvider) : base(uri) {
+			_authKey = authKey;
 			_typeInfoProvider = typeInfoProvider;
+		}
+
+		protected override async Task OnConnected(CancellationToken cancellationToken) {
+			await base.OnConnected(cancellationToken).ConfigureAwait(true);
+			if (string.IsNullOrEmpty(_authKey))
+				return;
+			using var stream = new MemoryStream();
+			await JsonSerializer.SerializeAsync(stream, new FANStudioAuthMessage(_authKey), SerializerContext.Default.FANStudioAuthMessage, cancellationToken).ConfigureAwait(true);
+			stream.Position = 0;
+			await SendAsync(stream, WebSocketMessageType.Text, cancellationToken).ConfigureAwait(true);
 		}
 
 		readonly Dictionary<string, (HashSet<string>, Queue<string>)> _history = [];
@@ -92,6 +128,11 @@ namespace Cryville.EEW.FANStudio {
 				using var lres = new LocalizedResource("", SharedCultures.CurrentUICulture);
 				var res = lres.RootMessageStringSet;
 				ErrorEmitted?.Invoke(this, new InvalidOperationException(string.Format(SharedCultures.CurrentCulture, res.GetStringRequired("ErrorServer"), errorMsg.Message)));
+			}
+			else if (e is FANStudioAuthFailureMessage authFailureMessage) {
+				using var lres = new LocalizedResource("", SharedCultures.CurrentUICulture);
+				var res = lres.RootMessageStringSet;
+				throw new SourceWorkerClientException(string.Format(SharedCultures.CurrentCulture, res.GetStringRequired("ErrorAuthFailure"), authFailureMessage.Message));
 			}
 		}
 

@@ -3,7 +3,11 @@
 	"Strings": {
 		"$ExtensionDesc": "Core components for receiving and processing information from FAN Studio API.",
 		"$ExtensionName": "FAN Studio API event source components",
+		"ErrorAuthFailure": "Authorization failure: {0}",
 		"ErrorServer": "Received an error message from the server: {0}",
+		"PNAuthKey": "Authorization key",
+		"PNAuthorizedFilter": "Filter (authorization required)",
+		"PDAuthorizedFilter": "The sources that requires authorization to receive.",
 		"PNFilter": "Filter",
 		"PDFilter": "The sources to receive.",
 		"PNSource": "Source",
@@ -15,6 +19,7 @@
 			"Strings": {
 				"$Multiple": "Multiple sources",
 				"$Single": "Single source",
+				"$SingleAuthorized": "Single source, authorization required",
 				"BCSFEarthquake": "BCSF earthquake information",
 				"BeijingEarthquake": "BEA (Beijing) earthquake information",
 				"CEAEEW": "CEA EEW",

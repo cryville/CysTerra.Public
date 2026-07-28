@@ -1,3 +1,4 @@
+using Cryville.Common.Compat;
 using Cryville.EEW.ComponentModel;
 using Cryville.EEW.FANStudio.Model;
 using Cryville.EEW.Report;
@@ -10,7 +11,11 @@ namespace Cryville.EEW.FANStudio {
 	[Export(typeof(IBuilder<ISourceWorker>))]
 	public class FANStudioAllWorkerBuilder : IBuilder<FANStudioAllWorker> {
 		public string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName("$Multiple", ref culture);
-		public FANStudioAllWorker Build(ref CultureInfo? culture) => new(new("wss://ws.fanstudio.tech/all"), FANStudioSourceTypeInfoProvider.Instance);
+
+		[LocalizableDisplayName("PNAuthKey")]
+		public string? AuthKey { get; set; }
+
+		public FANStudioAllWorker Build(ref CultureInfo? culture) => new(new("wss://ws.fanstudio.tech/all"), AuthKey, FANStudioSourceTypeInfoProvider.Instance);
 	}
 
 	[Export(typeof(IBuilder<ISourceWorker>))]
@@ -22,29 +27,6 @@ namespace Cryville.EEW.FANStudio {
 
 		public ISourceWorker Build(ref CultureInfo? culture) {
 			return Source switch {
-				FANStudioSource.CMAWeatherAlarm => Build<CMAWeatherAlarm>(),
-				FANStudioSource.NMEFCTsunamiWarning => Build<NMEFCTsunamiWarning>(),
-				FANStudioSource.CENCEarthquake => Build<CENCEarthquake>(),
-				// FANStudioSource.CENCIntensityReport => Build<CENCIntensityReport>(),
-				FANStudioSource.CEAEEW => Build<CEAEEW>(),
-				FANStudioSource.CEAProvinceEEW => Build<CEAProvinceEEW>(),
-				FANStudioSource.NingxiaEarthquake => Build<NingxiaEarthquake>(),
-				FANStudioSource.GuangxiEarthquake => Build<GuangxiEarthquake>(),
-				FANStudioSource.ShanxiEarthquake => Build<ShanxiEarthquake>(),
-				FANStudioSource.BeijingEarthquake => Build<BeijingEarthquake>(),
-				FANStudioSource.YunnanEarthquake => Build<YunnanEarthquake>(),
-				// FANStudioSource.CWAEarthquake => Build<CWAEarthquake>(),
-				FANStudioSource.CWAEEW => Build<CWAEEW>(),
-				// FANStudioSource.JMAEEW => Build<JMAEEW>(),
-				FANStudioSource.HKOEarthquake => Build<HKOEarthquake>(),
-				FANStudioSource.USGSEarthquake => Build<USGSEarthquake>(),
-				FANStudioSource.ShakeAlertEEW => Build<ShakeAlertEEW>(),
-				FANStudioSource.EMSCEarthquake => Build<EMSCEarthquake>(),
-				FANStudioSource.BCSFEarthquake => Build<BCSFEarthquake>(),
-				FANStudioSource.GFZEarthquake => Build<GFZEarthquake>(),
-				FANStudioSource.USPEarthquake => Build<USPEarthquake>(),
-				FANStudioSource.KMAEarthquake => Build<KMAEarthquake>(),
-				// FANStudioSource.KMAEEW => Build<KMAEEW>(),
 				FANStudioSource.FSSNEarthquake => Build<FSSNEarthquake>(),
 				// FANStudioSource.FSSNCMT => Build<FSSNCMT>(),
 				_ => throw new NotSupportedException(),
@@ -55,7 +37,55 @@ namespace Cryville.EEW.FANStudio {
 				throw new NotSupportedException();
 			if (!FANStudioSourceTypeInfoProvider.Instance.TryGetTypeInfo(source, out var typeInfo))
 				throw new NotSupportedException();
-			return new(new(new("wss://ws.fanstudio.tech/"), source), typeInfo);
+			return new(new(new("wss://ws.fanstudio.tech/"), source), null, typeInfo);
+		}
+	}
+
+	[Export(typeof(IBuilder<ISourceWorker>))]
+	public class FANStudioAuthorizedWorkerBuilder : IBuilder<ISourceWorker> {
+		public string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName("$SingleAuthorized", ref culture);
+
+		[LocalizableDisplayName("PNAuthKey")]
+		public string? AuthKey { get; set; }
+
+		[LocalizableDisplayName("PNSource")]
+		public FANStudioAuthorizedSource Source { get; set; }
+
+		public ISourceWorker Build(ref CultureInfo? culture) {
+			return Source switch {
+				FANStudioAuthorizedSource.CMAWeatherAlarm => Build<CMAWeatherAlarm>(),
+				FANStudioAuthorizedSource.NMEFCTsunamiWarning => Build<NMEFCTsunamiWarning>(),
+				FANStudioAuthorizedSource.CENCEarthquake => Build<CENCEarthquake>(),
+				// FANStudioAuthorizedSource.CENCIntensityReport => Build<CENCIntensityReport>(),
+				FANStudioAuthorizedSource.CEAEEW => Build<CEAEEW>(),
+				FANStudioAuthorizedSource.CEAProvinceEEW => Build<CEAProvinceEEW>(),
+				FANStudioAuthorizedSource.NingxiaEarthquake => Build<NingxiaEarthquake>(),
+				FANStudioAuthorizedSource.GuangxiEarthquake => Build<GuangxiEarthquake>(),
+				FANStudioAuthorizedSource.ShanxiEarthquake => Build<ShanxiEarthquake>(),
+				FANStudioAuthorizedSource.BeijingEarthquake => Build<BeijingEarthquake>(),
+				FANStudioAuthorizedSource.YunnanEarthquake => Build<YunnanEarthquake>(),
+				// FANStudioAuthorizedSource.CWAEarthquake => Build<CWAEarthquake>(),
+				FANStudioAuthorizedSource.CWAEEW => Build<CWAEEW>(),
+				// FANStudioAuthorizedSource.JMAEEW => Build<JMAEEW>(),
+				FANStudioAuthorizedSource.HKOEarthquake => Build<HKOEarthquake>(),
+				FANStudioAuthorizedSource.USGSEarthquake => Build<USGSEarthquake>(),
+				FANStudioAuthorizedSource.ShakeAlertEEW => Build<ShakeAlertEEW>(),
+				FANStudioAuthorizedSource.EMSCEarthquake => Build<EMSCEarthquake>(),
+				FANStudioAuthorizedSource.BCSFEarthquake => Build<BCSFEarthquake>(),
+				FANStudioAuthorizedSource.GFZEarthquake => Build<GFZEarthquake>(),
+				FANStudioAuthorizedSource.USPEarthquake => Build<USPEarthquake>(),
+				FANStudioAuthorizedSource.KMAEarthquake => Build<KMAEarthquake>(),
+				// FANStudioAuthorizedSource.KMAEEW => Build<KMAEEW>(),
+				_ => throw new NotSupportedException(),
+			};
+		}
+		FANStudioWorker<T> Build<T>() where T : class {
+			if (!FANStudioSourceTypeInfoProvider.Instance.TryGetSource(typeof(T), out string? source))
+				throw new NotSupportedException();
+			if (!FANStudioSourceTypeInfoProvider.Instance.TryGetTypeInfo(source, out var typeInfo))
+				throw new NotSupportedException();
+			ThrowHelper.ThrowIfNullOrEmpty(AuthKey);
+			return new(new(new("wss://ws.fanstudio.tech/"), source), AuthKey, typeInfo);
 		}
 	}
 

@@ -22,6 +22,16 @@ namespace Cryville.EEW.FANStudio.Model {
 		[property: JsonPropertyName("timestamp")] long Timestamp
 	) : FANStudioMessage;
 
+	public record FANStudioAuthMessage(
+		[property: JsonPropertyName("appId")] string AppId,
+		[property: JsonPropertyName("key")] string Key
+	) {
+		public const string CysTerraAppId = "da8721c9-5e20-4ba0-b1e3-8842eac322b3";
+		public FANStudioAuthMessage(string key) : this(CysTerraAppId, key) { }
+
+		[JsonPropertyName("type")] public string Type { get; } = "auth";
+	}
+
 	public record FANStudioSimpleMessage(
 		[property: JsonPropertyName("message")] string Message
 	) : FANStudioMessage;

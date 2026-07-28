@@ -3,6 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Cryville.EEW.FANStudio {
 	[JsonSerializable(typeof(FANStudioMessage))]
+	[JsonSerializable(typeof(FANStudioAuthMessage))]
 	[JsonSerializable(typeof(FANStudioData<CMAWeatherAlarm>))]
 	[JsonSerializable(typeof(FANStudioData<NMEFCTsunamiWarning>))]
 	[JsonSerializable(typeof(FANStudioData<CENCEarthquake>))]

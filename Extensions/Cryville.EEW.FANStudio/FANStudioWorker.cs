@@ -11,12 +11,22 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cryville.EEW.FANStudio {
-	public class FANStudioWorker<T>(Uri uri, JsonTypeInfo typeInfo) : WebSocketWorker(uri), ISourceWorker<T> where T : class {
+	public class FANStudioWorker<T>(Uri uri, string? authKey, JsonTypeInfo typeInfo) : WebSocketWorker(uri), ISourceWorker<T> where T : class {
 		public virtual string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(typeof(T).Name, ref culture);
 
 		public event Handler<T>? Received;
 		public event Handler<Heartbeat>? Heartbeat;
 		public event Handler<Exception>? ErrorEmitted;
+
+		protected override async Task OnConnected(CancellationToken cancellationToken) {
+			await base.OnConnected(cancellationToken).ConfigureAwait(true);
+			if (string.IsNullOrEmpty(authKey))
+				return;
+			using var stream = new MemoryStream();
+			await JsonSerializer.SerializeAsync(stream, new FANStudioAuthMessage(authKey), SerializerContext.Default.FANStudioAuthMessage, cancellationToken).ConfigureAwait(true);
+			stream.Position = 0;
+			await SendAsync(stream, WebSocketMessageType.Text, cancellationToken).ConfigureAwait(true);
+		}
 
 		readonly HashSet<string> _historySet = [];
 		readonly Queue<string> _historyList = [];
@@ -48,6 +58,11 @@ namespace Cryville.EEW.FANStudio {
 				using var lres = new LocalizedResource("", SharedCultures.CurrentUICulture);
 				var res = lres.RootMessageStringSet;
 				ErrorEmitted?.Invoke(this, new InvalidOperationException(string.Format(SharedCultures.CurrentCulture, res.GetStringRequired("ErrorServer"), errorMsg.Message)));
+			}
+			else if (e is FANStudioAuthFailureMessage authFailureMessage) {
+				using var lres = new LocalizedResource("", SharedCultures.CurrentUICulture);
+				var res = lres.RootMessageStringSet;
+				throw new SourceWorkerClientException(string.Format(SharedCultures.CurrentCulture, res.GetStringRequired("ErrorAuthFailure"), authFailureMessage.Message));
 			}
 		}
 

@@ -3,7 +3,11 @@
 	"Strings": {
 		"$ExtensionDesc": "用於接收及處理FAN Studio API來源嘅資訊嘅核心組件。",
 		"$ExtensionName": "FAN Studio API事件源組件",
+		"ErrorAuthFailure": "認證失敗：{0}",
 		"ErrorServer": "接收到服務器發送嘅錯誤消息：{0}",
+		"PNAuthKey": "認證密鑰",
+		"PNAuthorizedFilter": "篩選項（需認證）",
+		"PDAuthorizedFilter": "要接收嘅需認證事件源。",
 		"PNFilter": "篩選項",
 		"PDFilter": "要接收嘅事件源。",
 		"PNSource": "事件源",
@@ -15,6 +19,7 @@
 			"Strings": {
 				"$Multiple": "多個事件源",
 				"$Single": "單個事件源",
+				"$SingleAuthorized": "單個事件源，需認證",
 				"BCSFEarthquake": "法國中央地震局地震資訊",
 				"BeijingEarthquake": "北京市地震局地震資訊",
 				"CEAEEW": "中國地震預警網地震預警",

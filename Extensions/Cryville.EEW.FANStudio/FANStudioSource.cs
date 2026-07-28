@@ -4,6 +4,11 @@ using System.ComponentModel;
 namespace Cryville.EEW.FANStudio {
 	public enum FANStudioSource {
 		[EditorBrowsable(EditorBrowsableState.Never)][Browsable(false)] None,
+		[LocalizableDisplayName(nameof(FSSNEarthquake), Path = ["SourceNameTypes"])] FSSNEarthquake = 0x100,
+		[LocalizableDisplayName(nameof(FSSNCMT), Path = ["SourceNameTypes"])] FSSNCMT = 0x101,
+	}
+	public enum FANStudioAuthorizedSource {
+		[EditorBrowsable(EditorBrowsableState.Never)][Browsable(false)] None,
 		[LocalizableDisplayName(nameof(CMAWeatherAlarm), Path = ["SourceNameTypes"])] CMAWeatherAlarm = 0x10,
 		[LocalizableDisplayName(nameof(NMEFCTsunamiWarning), Path = ["SourceNameTypes"])] NMEFCTsunamiWarning = 0x11,
 		[LocalizableDisplayName(nameof(CENCEarthquake), Path = ["SourceNameTypes"])] CENCEarthquake = 0x20,
@@ -27,7 +32,5 @@ namespace Cryville.EEW.FANStudio {
 		[LocalizableDisplayName(nameof(USPEarthquake), Path = ["SourceNameTypes"])] USPEarthquake = 0x83,
 		[LocalizableDisplayName(nameof(KMAEarthquake), Path = ["SourceNameTypes"])] KMAEarthquake = 0x90,
 		[LocalizableDisplayName(nameof(KMAEEW), Path = ["SourceNameTypes"])] KMAEEW = 0x98,
-		[LocalizableDisplayName(nameof(FSSNEarthquake), Path = ["SourceNameTypes"])] FSSNEarthquake = 0x100,
-		[LocalizableDisplayName(nameof(FSSNCMT), Path = ["SourceNameTypes"])] FSSNCMT = 0x101,
 	}
 }
