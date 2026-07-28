@@ -5,11 +5,13 @@ You can provide your extension in multiple cultures (languages). Instead of hard
 Message files are written in a subdirectory `Messages` within your project directory. The messages for the event source culture should be written in the `und.json` file. For each additional supported culture, add a `.json` file named with the corresponding BCP 47 language tag.
 
 > [!TIP]
-> It is recommended to minimize ([remove likely subtags](https://unicode.org/reports/tr35/#Likely_Subtags)) the language tag used as the file name. Enter the language tag below to compute a possible minimized tag.
+> Prior to 0.8.9, it is recommended to minimize ([remove likely subtags](https://unicode.org/reports/tr35/#Likely_Subtags)) the language tag used as the file name. Enter the language tag below to compute a possible minimized tag.
 >
 > <input id="lang-input" /><input type="button" value="Minimize" onclick="const o = getElementById('lang-output'); o.innerText = ''; o.innerText = 'Result: ' + new Intl.Locale(getElementById('lang-input').value).minimize().baseName;" />
 >
 > <span id="lang-output"></span>
+>
+> Since 0.8.9, it is no longer necessary to minimize the language tag. Though you can still do this process to maintain maximum compatibility.
 
 The content of a message file is structured as follows.
 
