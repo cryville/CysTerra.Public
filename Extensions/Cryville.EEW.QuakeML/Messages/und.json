@@ -1,0 +1,61 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Common components for processing information of the QuakeML format.",
+		"$ExtensionName": "QuakeML common components",
+		"EventTypeSuspected": "suspected {0}",
+		"ExtensionCollector": "QuakeML Extensions",
+		"LocationAggregated": "{0} (+{1})",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"SourceName": "QuakeML (Seismic event)",
+		"Title": "Seismic event"
+	},
+	"StringSets": {
+		"EventType": {
+			"Strings": {
+				"anthropogenicevent": "anthropogenic event",
+				"collapse": "collapse",
+				"cavitycollapse": "cavity collapse",
+				"minecollapse": "mine collapse",
+				"buildingcollapse": "building collapse",
+				"explosion": "explosion",
+				"accidentalexplosion": "accidental explosion",
+				"chemicalexplosion": "chemical explosion",
+				"controlledexplosion": "controlled explosion",
+				"experimentalexplosion": "experimental explosion",
+				"industrialexplosion": "industrial explosion",
+				"miningexplosion": "mining explosion",
+				"quarryblast": "quarry blast",
+				"roadcut": "road cut",
+				"blastinglevee": "blasting levee",
+				"nuclearexplosion": "nuclear explosion",
+				"inducedortriggeredevent": "induced or triggered event",
+				"rockburst": "rock burst",
+				"reservoirloading": "reservoir loading",
+				"fluidinjection": "fluid injection",
+				"fluidextraction": "fluid extraction",
+				"crash": "crash",
+				"planecrash": "plane crash",
+				"traincrash": "train crash",
+				"boatcrash": "boat crash",
+				"otherevent": "other event",
+				"atmosphericevent": "atmospheric event",
+				"sonicboom": "sonic boom",
+				"sonicblast": "sonic blast",
+				"acousticnoise": "acoustic noise",
+				"thunder": "thunder",
+				"avalanche": "avalanche",
+				"snowavalanche": "snow avalanche",
+				"debrisavalanche": "debris avalanche",
+				"hydroacousticevent": "hydroacoustic event",
+				"icequake": "ice quake",
+				"slide": "slide",
+				"landslide": "landslide",
+				"rockslide": "rockslide",
+				"meteorite": "meteorite",
+				"volcaniceruption": "volcanic eruption"
+			}
+		}
+	}
+}

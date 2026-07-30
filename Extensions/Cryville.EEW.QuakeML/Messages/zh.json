@@ -1,0 +1,61 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于处理QuakeML格式的信息的通用组件。",
+		"$ExtensionName": "QuakeML通用组件",
+		"EventTypeSuspected": "疑似{0}",
+		"ExtensionCollector": "QuakeML扩展",
+		"LocationAggregated": "{0}（+{1}）",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"SourceName": "QuakeML（地震学事件）",
+		"Title": "地震学事件"
+	},
+	"StringSets": {
+		"EventType": {
+			"Strings": {
+				"anthropogenicevent": "人工地震",
+				"collapse": "崩塌",
+				"cavitycollapse": "空穴崩塌",
+				"minecollapse": "矿场崩塌",
+				"buildingcollapse": "建筑倒塌",
+				"explosion": "爆炸",
+				"accidentalexplosion": "意外爆炸",
+				"chemicalexplosion": "化学爆炸",
+				"controlledexplosion": "受控爆炸",
+				"experimentalexplosion": "试验爆炸",
+				"industrialexplosion": "工业爆炸",
+				"miningexplosion": "矿场爆炸",
+				"quarryblast": "采石场爆破",
+				"roadcut": "路堑爆破",
+				"blastinglevee": "堤坝爆破",
+				"nuclearexplosion": "核爆炸",
+				"inducedortriggeredevent": "诱发事件",
+				"rockburst": "冲击地压",
+				"reservoirloading": "水库蓄水诱发地震",
+				"fluidinjection": "流体注入诱发地震",
+				"fluidextraction": "流体抽取诱发地震",
+				"crash": "撞击",
+				"planecrash": "飞机撞击",
+				"traincrash": "火车撞击",
+				"boatcrash": "船只撞击",
+				"otherevent": "其它事件",
+				"atmosphericevent": "大气事件",
+				"sonicboom": "音爆",
+				"sonicblast": "音爆",
+				"acousticnoise": "声学噪声",
+				"thunder": "雷击",
+				"avalanche": "坡表崩滑",
+				"snowavalanche": "雪崩",
+				"debrisavalanche": "泥石流",
+				"hydroacousticevent": "水声学事件",
+				"icequake": "冰震",
+				"slide": "滑坡",
+				"landslide": "山体滑坡",
+				"rockslide": "岩石滑坡",
+				"meteorite": "陨石坠落",
+				"volcaniceruption": "火山喷发"
+			}
+		}
+	}
+}
