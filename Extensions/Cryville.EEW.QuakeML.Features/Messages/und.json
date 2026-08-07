@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from information of the QuakeML format.",
+		"$ExtensionName": "QuakeML feature components"
+	}
+}
