@@ -17,6 +17,8 @@ namespace Cryville.EEW.FANStudio.Features {
 			};
 			if (e.EpicenterIntensity is float epiIntensity)
 				f.Add(IntensityCSIS, new QuantityInc(epiIntensity, 0.05f, Units.Dimensionless));
+			if (e.UpdateTime is DateTime updateTime)
+				f.Add(TimeModified, new DateTimeOffset(updateTime, Local.TimeZoneOffset));
 			return f;
 		}
 		static Feature GenerateFromEarthquake(CEAEEW e) {
@@ -27,8 +29,6 @@ namespace Cryville.EEW.FANStudio.Features {
 				{ At, GenerateFromLocation(e) },
 				{ Magnitude, new QuantityInc(e.Magnitude, 0.05f, Units.Dimensionless) },
 			};
-			if (e.UpdateTime is DateTime updateTime)
-				f.Add(TimeModified, new DateTimeOffset(updateTime, Local.TimeZoneOffset));
 			return f;
 		}
 		static Feature GenerateFromLocation(CEAEEW e) {
