@@ -1,0 +1,91 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+
+namespace Cryville.EEW.USGS.Model {
+	public record USGSEarthquake(
+		[property: JsonPropertyName("mag")] float? Magnitude,
+		[property: JsonPropertyName("place")] string Place,
+		[property: JsonPropertyName("time")] long Timestamp,
+		[property: JsonPropertyName("updated")] long UpdatedTimestamp,
+		[property: JsonPropertyName("tz")] int? TimeZoneOffset,
+		[property: JsonPropertyName("url")] Uri Url,
+		[property: JsonPropertyName("felt")] int? FeltReportCount,
+		[property: JsonPropertyName("cdi")] float? ComputedMaxDYFIIntensity,
+		[property: JsonPropertyName("mmi")] float? MaxEstInstMMI,
+		[property: JsonPropertyName("alert")] string? AlertLevel,
+		[property: JsonPropertyName("status")] string Status,
+		[property: JsonPropertyName("tsunami")] int TsunamiFlag,
+		[property: JsonPropertyName("sig")] int Significance,
+		[property: JsonPropertyName("net")] string Network,
+		[property: JsonPropertyName("code")] string Code,
+		[property: JsonPropertyName("ids")] string IDs,
+		[property: JsonPropertyName("sources")] string Sources,
+		[property: JsonPropertyName("types")] string ProductTypes,
+		[property: JsonPropertyName("nst")] int? StationCount,
+		[property: JsonPropertyName("dmin")] float? MinDistance,
+		[property: JsonPropertyName("rms")] float? TravelTimeResidual,
+		[property: JsonPropertyName("gap")] float? MaxAzimuthalGap,
+		[property: JsonPropertyName("magType")] string MagnitudeType,
+		[property: JsonPropertyName("type")] string Type,
+		[property: JsonPropertyName("title")] string Title
+	);
+
+	public record USGSEarthquakeSummary(
+		float? Magnitude,
+		string Place,
+		long Timestamp,
+		long UpdatedTimestamp,
+		int? TimeZoneOffset,
+		Uri Url,
+		[property: JsonPropertyName("detail")] Uri DetailUrl,
+		int? FeltReportCount,
+		float? ComputedMaxDYFIIntensity,
+		float? MaxEstInstMMI,
+		string? AlertLevel,
+		string Status,
+		int TsunamiFlag,
+		int Significance,
+		string Network,
+		string Code,
+		string IDs,
+		string Sources,
+		string ProductTypes,
+		int? StationCount,
+		float? MinDistance,
+		float? TravelTimeResidual,
+		float? MaxAzimuthalGap,
+		string MagnitudeType,
+		string Type,
+		string Title
+	) : USGSEarthquake(Magnitude, Place, Timestamp, UpdatedTimestamp, TimeZoneOffset, Url, FeltReportCount, ComputedMaxDYFIIntensity, MaxEstInstMMI, AlertLevel, Status, TsunamiFlag, Significance, Network, Code, IDs, Sources, ProductTypes, StationCount, MinDistance, TravelTimeResidual, MaxAzimuthalGap, MagnitudeType, Type, Title);
+
+	public record USGSEarthquakeDetail(
+		float? Magnitude,
+		string Place,
+		long Timestamp,
+		long UpdatedTimestamp,
+		int? TimeZoneOffset,
+		Uri Url,
+		int? FeltReportCount,
+		float? ComputedMaxDYFIIntensity,
+		float? MaxEstInstMMI,
+		string? AlertLevel,
+		string Status,
+		int TsunamiFlag,
+		int Significance,
+		string Network,
+		string Code,
+		string IDs,
+		string Sources,
+		string ProductTypes,
+		int? StationCount,
+		float? MinDistance,
+		float? TravelTimeResidual,
+		float? MaxAzimuthalGap,
+		string MagnitudeType,
+		string Type,
+		string Title,
+		[property: JsonPropertyName("products")] IReadOnlyDictionary<string, IReadOnlyCollection<USGSEarthquakeProduct>> Products
+	) : USGSEarthquake(Magnitude, Place, Timestamp, UpdatedTimestamp, TimeZoneOffset, Url, FeltReportCount, ComputedMaxDYFIIntensity, MaxEstInstMMI, AlertLevel, Status, TsunamiFlag, Significance, Network, Code, IDs, Sources, ProductTypes, StationCount, MinDistance, TravelTimeResidual, MaxAzimuthalGap, MagnitudeType, Type, Title);
+}

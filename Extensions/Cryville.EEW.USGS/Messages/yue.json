@@ -1,0 +1,85 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於接收及處理美國地質調查局地震實時推送來源嘅資訊嘅核心組件。",
+		"$ExtensionName": "USGS事件源組件",
+		"AuthorityName": "USGS",
+		"AuthorityNameForwarded": "{0} | {1}",
+		"PNFeed": "推送",
+		"PNFilter": "篩選項",
+		"PDFilter": "要接收嘅產品。",
+		"PNSubtype": "推送類型",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyValue": "{0}{1}",
+		"PropertyValueUnknown": "不明",
+		"ShakeMapTitle": "地震動圖（{0}）",
+		"SourceName": "USGS",
+		"SourceNameContours": "USGS地震動圖（輪廓綫）"
+	},
+	"StringSets": {
+		"ContoursName": {
+			"Strings": {
+				"cont_mi": "等震綫",
+				"cont_mmi": "等震綫",
+				"cont_pga": "等PGA綫",
+				"cont_pgv": "等PGV綫"
+			}
+		},
+		"ContoursPropertyName": {
+			"Strings": {
+				"cont_mi": "最大烈度",
+				"cont_mmi": "最大烈度",
+				"cont_pga": "最大PGA",
+				"cont_pgv": "最大PGV"
+			}
+		},
+		"FeedType": {
+			"Strings": {
+				"significant_hour": "顯著地震，近一個鐘",
+				"4.5_hour": "M4.5及以上地震，近一個鐘",
+				"2.5_hour": "M2.5及以上地震，近一個鐘",
+				"1.0_hour": "M1.0及以上地震，近一個鐘",
+				"all_hour": "全部地震，近一個鐘",
+				"significant_day": "顯著地震，近一日",
+				"4.5_day": "M4.5及以上地震，近一日",
+				"2.5_day": "M2.5及以上地震，近一日",
+				"1.0_day": "M1.0及以上地震，近一日",
+				"all_day": "全部地震，近一日",
+				"significant_week": "顯著地震，近7日",
+				"4.5_week": "M4.5及以上地震，近7日",
+				"2.5_week": "M2.5及以上地震，近7日",
+				"1.0_week": "M1.0及以上地震，近7日",
+				"all_week": "全部地震，近7日",
+				"significant_month": "顯著地震，近30日",
+				"4.5_month": "M4.5及以上地震，近30日",
+				"2.5_month": "M2.5及以上地震，近30日",
+				"1.0_month": "M1.0及以上地震，近30日",
+				"all_month": "全部地震，近30日"
+			}
+		},
+		"ProductType": {
+			"Strings": {
+				"Origin": "震源",
+				"ShakeMapContMmi": "地震動圖（等烈度綫）",
+				"ShakeMapContPga": "地震動圖（等最大地面加速度綫）",
+				"ShakeMapContPgv": "地震動圖（等最大地面速度綫）"
+			}
+		},
+		"PropertyUnits": {
+			"Strings": {
+				"mmi": "",
+				"pctg": "%g",
+				"g": "g",
+				"cms": "cm/s"
+			}
+		},
+		"WorkerSubtype": {
+			"Strings": {
+				"GeoJSON": "詳細（GeoJSON）",
+				"QuakeML": "摘要（QuakeML）"
+			}
+		}
+	}
+}

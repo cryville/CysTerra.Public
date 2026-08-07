@@ -1,0 +1,85 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from the United States Geological Survey Earthquake Real-time Feeds.",
+		"$ExtensionName": "USGS event source components",
+		"AuthorityName": "USGS",
+		"AuthorityNameForwarded": "{0} | {1}",
+		"PNFeed": "Feed",
+		"PNFilter": "Filter",
+		"PDFilter": "The products to receive.",
+		"PNSubtype": "Feed type",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyValue": "{0}{1}",
+		"PropertyValueUnknown": "Unknown",
+		"ShakeMapTitle": "ShakeMap ({0})",
+		"SourceName": "USGS",
+		"SourceNameContours": "USGS ShakeMap (Contours)"
+	},
+	"StringSets": {
+		"ContoursName": {
+			"Strings": {
+				"cont_mi": "Intensity Contours",
+				"cont_mmi": "Intensity Contours",
+				"cont_pga": "PGA Contours",
+				"cont_pgv": "PGV Contours"
+			}
+		},
+		"ContoursPropertyName": {
+			"Strings": {
+				"cont_mi": "Max intensity",
+				"cont_mmi": "Max intensity",
+				"cont_pga": "Max PGA",
+				"cont_pgv": "Max PGV"
+			}
+		},
+		"FeedType": {
+			"Strings": {
+				"significant_hour": "Significant Earthquakes, Past Hour",
+				"4.5_hour": "M4.5+ Earthquakes, Past Hour",
+				"2.5_hour": "M2.5+ Earthquakes, Past Hour",
+				"1.0_hour": "M1.0+ Earthquakes, Past Hour",
+				"all_hour": "All Earthquakes, Past Hour",
+				"significant_day": "Significant Earthquakes, Past Day",
+				"4.5_day": "M4.5+ Earthquakes, Past Day",
+				"2.5_day": "M2.5+ Earthquakes, Past Day",
+				"1.0_day": "M1.0+ Earthquakes, Past Day",
+				"all_day": "All Earthquakes, Past Day",
+				"significant_week": "Significant Earthquakes, Past 7 Days",
+				"4.5_week": "M4.5+ Earthquakes, Past 7 Days",
+				"2.5_week": "M2.5+ Earthquakes, Past 7 Days",
+				"1.0_week": "M1.0+ Earthquakes, Past 7 Days",
+				"all_week": "All Earthquakes, Past 7 Days",
+				"significant_month": "Significant Earthquakes, Past 30 Days",
+				"4.5_month": "M4.5+ Earthquakes, Past 30 Days",
+				"2.5_month": "M2.5+ Earthquakes, Past 30 Days",
+				"1.0_month": "M1.0+ Earthquakes, Past 30 Days",
+				"all_month": "All Earthquakes, Past 30 Days"
+			}
+		},
+		"ProductType": {
+			"Strings": {
+				"Origin": "Origin",
+				"ShakeMapContMmi": "ShakeMap (Intensity Contours)",
+				"ShakeMapContPga": "ShakeMap (PGA Contours)",
+				"ShakeMapContPgv": "ShakeMap (PGV Contours)"
+			}
+		},
+		"PropertyUnits": {
+			"Strings": {
+				"mmi": "",
+				"pctg": "%g",
+				"g": "g",
+				"cms": "cm/s"
+			}
+		},
+		"WorkerSubtype": {
+			"Strings": {
+				"GeoJSON": "Details (GeoJSON)",
+				"QuakeML": "Summary (QuakeML)"
+			}
+		}
+	}
+}
