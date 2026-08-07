@@ -5,6 +5,7 @@ using QuakeML;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using static Cryville.EEW.TagTypeKeys;
 using Tag = System.Collections.Generic.KeyValuePair<Cryville.EEW.TagTypeKey, object?>;
 
@@ -32,21 +33,21 @@ namespace Cryville.EEW.QuakeML.Features {
 				}
 				f.Add(Subject, fSubjects);
 			}
-			foreach (var (_, magnitude) in magnitudes) {
-				f.TryAdd(magnitude.Key, magnitude.Value);
+			foreach (var magnitudeTag in magnitudes.SelectMany(m => m.Value)) {
+				f.TryAdd(magnitudeTag.Key, magnitudeTag.Value);
 			}
 			ApplyComment(f, e.comment);
 			ApplyCreationInfo(f, e.creationInfo);
 			return f;
 		}
 
-		static Dictionary<string, Tag> CollectMagnitudes(Magnitude[] magnitudes) {
-			var result = new Dictionary<string, Tag>(magnitudes.Length);
+		static Dictionary<string, List<Tag>> CollectMagnitudes(Magnitude[] magnitudes) {
+			var result = new Dictionary<string, List<Tag>>(magnitudes.Length);
 			foreach (var magnitude in magnitudes) {
-				string? originID = magnitude.originID;
-				if (string.IsNullOrWhiteSpace(originID))
-					originID = "guid:" + Guid.NewGuid().ToString(null, CultureInfo.InvariantCulture);
-				result.Add(magnitude.originID, new(magnitude.type.ToUpperInvariant() switch {
+				string originID = magnitude.originID ?? "";
+				if (!result.TryGetValue(originID, out var tags))
+					result.Add(originID, tags = []);
+				tags.Add(new(magnitude.type.ToUpperInvariant() switch {
 					['M', 'B', ..] => MagnitudeBodyWave,
 					"MC" or "MD" => MagnitudeDuration,
 					['M', 'L', ..] => MagnitudeLocal,
@@ -58,7 +59,7 @@ namespace Cryville.EEW.QuakeML.Features {
 			return result;
 		}
 
-		static Feature GenerateFromOrigin(Event e, Origin origin, Dictionary<string, Tag> magnitudes) {
+		static Feature GenerateFromOrigin(Event e, Origin origin, Dictionary<string, List<Tag>> magnitudes) {
 			var f = new Feature {
 				{ Is, Earthquake },
 				{ Time, new DateTimeOffset(origin.time.value, TimeSpan.Zero) },
@@ -86,8 +87,11 @@ namespace Cryville.EEW.QuakeML.Features {
 			if (description != null)
 				f.Add(Description, description);
 			f.Add(At, GenerateHypocenterFromOrigin(origin, regionNameOverride));
-			if (magnitudes.Remove(origin.publicID, out var magTag))
-				f.Add(magTag);
+			if (magnitudes.Remove(origin.publicID, out var magTags)) {
+				foreach (var magTag in magTags) {
+					f.TryAdd(magTag.Key, magTag.Value);
+				}
+			}
 			ApplyComment(f, origin.comment);
 			ApplyCreationInfo(f, origin.creationInfo);
 			return f;
