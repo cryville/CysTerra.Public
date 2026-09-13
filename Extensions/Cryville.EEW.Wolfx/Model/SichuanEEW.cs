@@ -1,5 +1,4 @@
 using System;
-using System.Text.Json.Serialization;
 
 namespace Cryville.EEW.Wolfx.Model {
 	/// <summary>
@@ -14,7 +13,7 @@ namespace Cryville.EEW.Wolfx.Model {
 		string HypoCenter,
 		float Latitude,
 		float Longitude,
-		[property: JsonPropertyName("Magunitude")] float Magnitude,
+		float Magnitude,
 		float? Depth,
 		float MaxIntensity
 	) : BaseModel;

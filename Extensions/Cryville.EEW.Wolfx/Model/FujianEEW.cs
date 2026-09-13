@@ -13,7 +13,7 @@ namespace Cryville.EEW.Wolfx.Model {
 		string HypoCenter,
 		float Latitude,
 		float Longitude,
-		[property: JsonPropertyName("Magunitude")] float Magnitude,
+		float Magnitude,
 		[property: JsonPropertyName("isFinal")] bool IsFinal
 	) : BaseModel;
 }
