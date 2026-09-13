@@ -6,10 +6,9 @@ using Cryville.EEW.Wolfx.Model;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text.Json;
 
 namespace Cryville.EEW.Wolfx {
-	public sealed class CENCEarthquakeReportGenerator : IContextedGenerator<WolfxEarthquakeList<CENCEarthquake>, IReportGeneratorContext, ReportModel>, IPropertiesHolder {
+	public sealed class CENCEarthquakeReportGenerator : IContextedGenerator<WolfxEarthquakeList<CENCEarthquake>, IReportGeneratorContext, ReportModel?>, IPropertiesHolder {
 		readonly static TagTypeKey TagQualityCENC = "Quality:CENC";
 
 		[LocalizableDisplayName("PNUseRawLocationName")]
@@ -17,7 +16,7 @@ namespace Cryville.EEW.Wolfx {
 		public bool UseRawLocationName { get; set; }
 
 		readonly HashSet<CENCEarthquake> _history = [];
-		public ReportModel Generate(WolfxEarthquakeList<CENCEarthquake> e, IReportGeneratorContext? context, ref CultureInfo culture) {
+		public ReportModel? Generate(WolfxEarthquakeList<CENCEarthquake> e, IReportGeneratorContext? context, ref CultureInfo culture) {
 			ThrowHelper.ThrowIfNull(e);
 			context ??= EmptyReportGeneratorContext.Instance;
 
@@ -31,7 +30,7 @@ namespace Cryville.EEW.Wolfx {
 				}
 				_history.RemoveWhere(eq => !e.Earthquakes.Contains(eq));
 			}
-			return result ?? throw new JsonException("Got new report without new or updated event.");
+			return result ?? null;
 		}
 		ReportModel Generate(CENCEarthquake? e, IReportGeneratorContext context, ref CultureInfo culture) {
 			ThrowHelper.ThrowIfNull(e);
