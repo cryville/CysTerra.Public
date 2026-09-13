@@ -1,4 +1,5 @@
 using Cryville.Common.Compat;
+using Cryville.EEW.CWA;
 using Cryville.EEW.Report;
 using Cryville.EEW.Wolfx.Model;
 using System;
@@ -30,7 +31,7 @@ namespace Cryville.EEW.Wolfx {
 			result.Time = new(e.OriginTime, Local.TaiwanTimeZoneOffset);
 			result.InvalidatedTime = new DateTimeOffset(e.ReportTime, Local.TaiwanTimeZoneOffset) + TimeSpan.FromMinutes(5);
 			result.RevisionKey = new ReportRevisionKey(e.ReportNum);
-			result.Properties.Add(new(TagTypeKeys.IntensityCWASIS, res.GetStringRequired("PropertyMaxIntensity"), e.MaxIntensity, context.SeverityScheme, e.MaxIntensity) { AccuracyOrder = 70 });
+			result.Properties.Add(new(TagTypeKeys.IntensityCWASIS, res.GetStringRequired("PropertyMaxIntensity"), e.MaxIntensity, context.SeverityScheme, CWAMessageUtils.ToNormalizedIntensity(e.MaxIntensity)) { AccuracyOrder = 70 });
 			result.Properties.Add(new(TagTypeKeys.MagnitudeRichter, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 70 });
 			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, TimeZoneInfo.ConvertTimeToUtc(e.OriginTime, result.TimeZone), e.Magnitude, e.Depth));
 			result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), e.Depth), context.SeverityScheme, e.Depth) { AccuracyOrder = 70 });

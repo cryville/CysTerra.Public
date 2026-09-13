@@ -1,4 +1,5 @@
 using Cryville.Common.Compat;
+using Cryville.EEW.CWA;
 using Cryville.EEW.Features;
 using Cryville.EEW.Wolfx.Model;
 using Cryville.Measure;
@@ -25,7 +26,7 @@ namespace Cryville.EEW.Wolfx.Features {
 					} },
 					{ Magnitude, new QuantityInc(e.Magnitude, 0.05f, Units.Dimensionless) },
 				} },
-				{ IntensityCWASIS, e.MaxIntensity },
+				{ IntensityCWASIS, CWAMessageUtils.ToNormalizedIntensity(e.MaxIntensity) },
 				{ TimeModified, new DateTimeOffset(e.ReportTime, Local.TaiwanTimeZoneOffset) },
 			};
 			return f;
