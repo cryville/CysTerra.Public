@@ -25,6 +25,13 @@ namespace Cryville.EEW.CWA {
 				.Replace("弱", res.GetStringRequired("IntensitySuffixLower"), StringComparison.Ordinal)
 				.Replace("強", res.GetStringRequired("IntensitySuffixUpper"), StringComparison.Ordinal);
 		}
+		public static string? ToNormalizedIntensity(string? intensity) {
+			if (intensity is null) return null;
+			return intensity
+				.Replace("級", "", StringComparison.Ordinal)
+				.Replace("弱", "-", StringComparison.Ordinal)
+				.Replace("強", "+", StringComparison.Ordinal);
+		}
 		public static string? ToShortDisplayIntensity(string? intensity) {
 			if (intensity is null) return null;
 			return intensity
