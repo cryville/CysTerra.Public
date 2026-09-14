@@ -1,0 +1,49 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于接收及处理台湾中央气象署开放资料平台来源的信息的核心组件。",
+		"$ExtensionName": "CWA开放资料平台事件源组件",
+		"AuthorityName": "CWA",
+		"ErrorUnauthorized": "授权码无效。",
+		"ErrorUnknownSubtype": "未知子类型。",
+		"PNSubtype": "资料集",
+		"PNToken": "授权码",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMaxIntensity": "最大震度",
+		"PropertyMaxTsunamiHeight": "最大波高",
+		"PropertyMaxTsunamiHeightValue": "{0}m",
+		"PropertyMaxTsunamiHeightValueUnknown": "不明",
+		"PropertyTsunamiMessage": "海\u2060啸消\u2060息",
+		"PropertyTsunamiWarning": "海\u2060啸警\u2060报",
+		"SourceName": "CWA（{0}）"
+	},
+	"StringSets": {
+		"EarthquakeReportSubtype": {
+			"Strings": {
+				"Significant": "显著有感地震报告",
+				"Minor": "小区域有感地震报告"
+			}
+		},
+		"EventTypes": {
+			"Strings": {
+				"Earthquake": "地震",
+				"Tsunami": "海啸"
+			}
+		},
+		"PropertyMagnitude": {
+			"Strings": {
+				"": "震级",
+				"芮氏規模": "里氏震级"
+			}
+		},
+		"Title": {
+			"Strings": {
+				"地震報告": "地震报告",
+				"海嘯消息": "海啸消息",
+				"海嘯警報": "海啸警报",
+				"海嘯警報解除": "海啸警报解除"
+			}
+		}
+	}
+}
