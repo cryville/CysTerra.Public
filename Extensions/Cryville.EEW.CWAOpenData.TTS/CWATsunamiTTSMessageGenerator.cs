@@ -65,7 +65,7 @@ namespace Cryville.EEW.CWAOpenData.TTS {
 						foreach (var area in heightGroup) {
 							sb.AppendLine(string.Format(
 								culture, res.GetStringRequired("TsunamiForecastArea"),
-								localFlag ? area.AreaName : res.GetStringSet("TsunamiForecastArea")?.GetString(area.AreaName) ?? area.AreaName,
+								localFlag ? area.AreaName : SharedResources.TsunamiForecastArea(culture).GetString(area.AreaName) ?? area.AreaName,
 								area.ArrivalTime
 							));
 						}

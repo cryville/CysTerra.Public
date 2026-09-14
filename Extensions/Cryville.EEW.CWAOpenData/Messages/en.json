@@ -44,6 +44,16 @@
 				"海嘯警報": "Tsunami warning",
 				"海嘯警報解除": "Tsunami warning lifted"
 			}
+		},
+		"TsunamiForecastArea": {
+			"Strings": {
+				"北部沿海地區": "Northern coastal area",
+				"東北沿海地區": "North-eastern coastal area",
+				"東南沿海地區": "South-eastern coastal area",
+				"東部沿海地區": "Eastern coastal area",
+				"海峽沿海地區": "Strait coastal area",
+				"西南沿海地區": "South-western coastal area"
+			}
 		}
 	}
 }

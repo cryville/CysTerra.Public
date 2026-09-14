@@ -10,5 +10,11 @@ namespace Cryville.EEW.CWAOpenData {
 			var res = lres.RootMessageStringSet;
 			return string.Format(culture, res.GetStringRequired("SourceName"), res.GetStringSet("EventTypes")?.GetString(subtype));
 		}
+
+		[MethodImpl(MethodImplOptions.NoInlining)] public static IMessageStringSet TsunamiForecastArea(ref CultureInfo? culture) => new LocalizedResource("", ref culture).RootMessageStringSet.GetStringSetRequired("TsunamiForecastArea");
+
+		public static IMessageStringSet TsunamiForecastArea(CultureInfo? culture) => TsunamiForecastArea(ref culture);
+
+		[MethodImpl(MethodImplOptions.NoInlining)] public static ILocalizableMessageStringSet TsunamiForecastArea() => new LocalizableResource("").RootMessageStringSet.GetStringSet("TsunamiForecastArea");
 	}
 }
