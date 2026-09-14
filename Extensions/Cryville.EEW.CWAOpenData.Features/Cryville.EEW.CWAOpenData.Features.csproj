@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.10</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.Features\Cryville.EEW.Features.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.Measure\Cryville.Measure.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.CWAOpenData\Cryville.EEW.CWAOpenData.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.GeoJSON.Features\Cryville.EEW.GeoJSON.Features.csproj" Private="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Resources\CWATsunamiAreas.Designer.cs">
+			<DependentUpon>CWATsunamiAreas.resx</DependentUpon>
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Resources\CWATsunamiAreas.resx">
+			<SubType>Designer</SubType>
+			<LastGenOutput>CWATsunamiAreas.Designer.cs</LastGenOutput>
+			<Generator>ResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>

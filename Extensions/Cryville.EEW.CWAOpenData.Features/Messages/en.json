@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from Central Weather Administration (Taiwan) Open Data.",
+		"$ExtensionName": "CWA Open Data feature components"
+	}
+}

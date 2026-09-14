@@ -1,0 +1,7 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成台灣中央氣象署開放資料平台事件詳細嘅組件。",
+		"$ExtensionName": "CWA開放資料平台事物組件"
+	}
+}

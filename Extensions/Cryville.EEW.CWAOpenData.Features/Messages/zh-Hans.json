@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成台湾中央气象署开放资料平台事件详情的组件。",
+		"$ExtensionName": "CWA开放资料平台事物组件"
+	}
+}
