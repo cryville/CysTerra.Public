@@ -1,0 +1,13 @@
+{
+	"Culture": "zh-TW",
+	"Strings": {
+		"$ExtensionDesc": "用於生成中央氣象署開放資料平臺語音消息的組件。",
+		"$ExtensionName": "CWA開放資料平臺TTS組件",
+		"EarthquakeFocalDepth": "震源深度{0}公里。",
+		"TsunamiForecast": "以下地區預估波高{0}。",
+		"TsunamiForecastArea": "{0}。預估到達時間{1:HH:mm}。",
+		"TsunamiObservation": "當前，各地觀測波高如下。",
+		"TsunamiObservationMaxHeight": "當前，各地觀測到的最大波高為{0}公尺。",
+		"TsunamiObservationStation": "{0}。{1}公尺。"
+	}
+}
