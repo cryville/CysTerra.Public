@@ -48,6 +48,16 @@ namespace Cryville.EEW.CWAOpenData {
 			return MathF.Round(result, 2, MidpointRounding.AwayFromZero);
 		}
 
+		public static float GetTsunamiWarningSeverity(WarningArea area) => area?.WaveHeight switch {
+			"大於6公尺" => 1.5f,
+			"3至6公尺" => 1.25f,
+			"1至3公尺" => 1,
+			"小於1公尺" or
+			"0.3至1公尺" => 0.75f,
+			"小於0.3公尺" => 0.5f,
+			_ => -1,
+		};
+
 		public static int KeyTsunamiForecastWaveHeight(string heightString) => heightString switch {
 			"大於6公尺" => 4,
 			"3至6公尺" => 3,

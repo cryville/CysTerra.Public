@@ -35,15 +35,7 @@ namespace Cryville.EEW.CWAOpenData {
 					isWarn = true;
 				}
 				else if (tsunamiWave.WarningAreas is WarningArea[] areas && areas.Length > 0) {
-					result.Properties.Add(new(TagTsunamiWarningCWA, null, res.GetStringRequired("PropertyTsunamiWarning"), areas.Max(area => area.WaveHeight switch {
-						"大於6公尺" => 1.5f,
-						"3至6公尺" => 1.25f,
-						"1至3公尺" => 1,
-						"小於1公尺" or
-						"0.3至1公尺" => 0.75f,
-						"小於0.3公尺" => 0.5f,
-						_ => -1,
-					})) { AccuracyOrder = 70 });
+					result.Properties.Add(new(TagTsunamiWarningCWA, null, res.GetStringRequired("PropertyTsunamiWarning"), areas.Max(CWAOpenDataUtils.GetTsunamiWarningSeverity)) { AccuracyOrder = 70 });
 					isInfo = true;
 					result.InvalidatedTime = e.ValidTime.EndTime;
 				}
