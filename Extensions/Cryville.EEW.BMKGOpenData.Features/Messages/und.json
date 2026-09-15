@@ -1,0 +1,7 @@
+{
+	"Culture": "id-ID",
+	"Strings": {
+		"$ExtensionDesc": "Komponen untuk menghasilkan detail kejadian dari Data Terbuka Badan Meteorologi, Klimatologi, dan Geofisika.",
+		"$ExtensionName": "Komponen fitur Data Terbuka BMKG"
+	}
+}

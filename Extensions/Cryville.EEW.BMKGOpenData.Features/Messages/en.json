@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from Meteorology, Climatology, and Geophysical Agency (Indonesia) Open Data.",
+		"$ExtensionName": "BMKG Open Data feature components"
+	}
+}

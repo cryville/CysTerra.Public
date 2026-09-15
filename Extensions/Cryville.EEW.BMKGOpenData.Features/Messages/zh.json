@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成印度尼西亚气象、气候及地球物理局开放数据事件详情的组件。",
+		"$ExtensionName": "BMKG开放数据事物组件"
+	}
+}
