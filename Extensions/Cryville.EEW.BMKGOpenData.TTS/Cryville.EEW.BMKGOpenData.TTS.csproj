@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.10</Version>
+		<NoWarn>$(NoWarn);CRYVEEW5001</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TTS\Cryville.EEW.TTS.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.BMKGOpenData\Cryville.EEW.BMKGOpenData.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,14 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成印度尼西亞氣象、氣候及地球物理局開放數據語音消息嘅組件。",
+		"$ExtensionName": "BMKG開放數據TTS組件",
+		"Headline": "印度尼西亞西部時間{0}，發生咗一次{1}地震。{2}",
+		"HeadlineDepth": "震源深度{0}公里。",
+		"HeadlineMagnitude": "震級{0:F1}級",
+		"MaxIntensity": "觀測到嘅最大烈度為{0}。",
+		"Region": "震中位於{0}。",
+		"Title": "地震數據。",
+		"TitleStandAlone": "地震數據"
+	}
+}
