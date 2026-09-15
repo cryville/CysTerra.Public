@@ -13,7 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cryville.EEW.BMKGOpenData {
-	public class BMKGOpenDataWorker : HttpPullWorker, ISourceWorker<BMKGEarthquake> {
+	public class BMKGOpenDataWorker : HttpPullWorker, ISourceWorker<BMKGEarthquake>, IPropertiesHolder {
 		public string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(ref culture);
 
 		public event Handler<BMKGEarthquake?>? Received;
