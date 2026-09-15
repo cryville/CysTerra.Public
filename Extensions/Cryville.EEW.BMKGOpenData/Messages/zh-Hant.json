@@ -1,0 +1,24 @@
+{
+	"Culture": "zh-TW",
+	"Strings": {
+		"$ExtensionDesc": "用於接收及處理印度尼西亞氣象、氣候及地球物理局開放數據來源的資訊的核心組件。",
+		"$ExtensionName": "BMKG開放數據事件源組件",
+		"AuthorityName": "BMKG",
+		"PNDataSubtypes": "數據類型",
+		"PDDataSubtypes": "要接收的數據類型。",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "最大震度",
+		"SourceName": "BMKG開放數據",
+		"Title": "地震數據"
+	},
+	"StringSets": {
+		"DataSubtype": {
+			"Strings": {
+				"Major": "M5.0及以上地震",
+				"Felt": "有感地震"
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"Culture": "id-ID",
+	"Strings": {
+		"$ExtensionDesc": "Komponen inti untuk menerima dan mengolah informasi dari Data Terbuka Badan Meteorologi, Klimatologi, dan Geofisika.",
+		"$ExtensionName": "Komponen sumber kejadian Data Terbuka BMKG",
+		"AuthorityName": "BMKG",
+		"PNDataSubtypes": "Jenis data",
+		"PDDataSubtypes": "Jenis data yang diterima.",
+		"PropertyDepth": "Kedalaman",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "Intensitas maks.",
+		"SourceName": "Data Terbuka BMKG",
+		"Title": "Data gempabumi"
+	},
+	"StringSets": {
+		"DataSubtype": {
+			"Strings": {
+				"Major": "Gempabumi M5.0+",
+				"Felt": "Gempabumi dirasakan"
+			}
+		}
+	}
+}

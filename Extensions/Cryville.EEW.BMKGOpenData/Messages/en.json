@@ -1,0 +1,24 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from Meteorology, Climatology, and Geophysical Agency (Indonesia) Open Data.",
+		"$ExtensionName": "BMKG Open Data event source components",
+		"AuthorityName": "BMKG",
+		"PNDataSubtypes": "Data types",
+		"PDDataSubtypes": "Data types to receive.",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "Max intensity",
+		"SourceName": "BMKG Open Data",
+		"Title": "Earthquake data"
+	},
+	"StringSets": {
+		"DataSubtype": {
+			"Strings": {
+				"Major": "M5.0+ earthquakes",
+				"Felt": "Felt earthquakes"
+			}
+		}
+	}
+}
