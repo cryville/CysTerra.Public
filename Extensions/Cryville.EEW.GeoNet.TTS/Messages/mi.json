@@ -1,0 +1,12 @@
+{
+	"Culture": "mi-NZ",
+	"Strings": {
+		"$ExtensionDesc": "Ngā waehanga mō te waihanga karere TTS mai i a GeoNet API.",
+		"$ExtensionName": "Waehanga TTS GeoNet",
+		"BodyQuake": "Mōhiohio rū whenua. I te {0}, i tū te rū whenua me te kaha {1} i te {2}. Ko te hōhonu pokapū roto he {3} manomita.",
+		"BodyStrong": "Mōhiohio kahapā. I tū te rū whenua me te kaha {0} i te {1}. Ko te hōhonu pokapū roto he {2} manomita. Ko te kahapā mōrahi i inea he {3}.",
+		"MaxIntensity": " Ko te kahapā mōrahi he {0}.",
+		"TitleQuake": "Mōhiohio rū whenua",
+		"TitleStrong": "Mōhiohio kahapā"
+	}
+}

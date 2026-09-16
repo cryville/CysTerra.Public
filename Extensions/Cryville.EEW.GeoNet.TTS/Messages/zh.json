@@ -1,0 +1,12 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于生成GeoNet API语音消息的组件。",
+		"$ExtensionName": "GeoNet TTS组件",
+		"BodyQuake": "地震信息。{0}，{2}发生震级{1}级地震。震源深度{3}千米。",
+		"BodyStrong": "强震动信息。{1}发生震级{0}级地震。震源深度{2}千米。最大仪器烈度{3}。",
+		"MaxIntensity": "最大烈度{0}。",
+		"TitleQuake": "地震信息",
+		"TitleStrong": "强震动信息"
+	}
+}
