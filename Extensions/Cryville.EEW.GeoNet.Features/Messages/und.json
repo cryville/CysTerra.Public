@@ -1,0 +1,7 @@
+{
+	"Culture": "en-NZ",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from GeoNet API.",
+		"$ExtensionName": "GeoNet feature components"
+	}
+}

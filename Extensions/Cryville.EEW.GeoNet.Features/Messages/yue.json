@@ -1,0 +1,7 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成GeoNet API事件詳細嘅組件。",
+		"$ExtensionName": "GeoNet事物組件"
+	}
+}
