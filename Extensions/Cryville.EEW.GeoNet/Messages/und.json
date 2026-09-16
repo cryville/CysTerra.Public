@@ -1,0 +1,37 @@
+{
+	"Culture": "en-NZ",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from GeoNet API.",
+		"$ExtensionName": "GeoNet event source components",
+		"AuthorityName": "GeoNet",
+		"PNDoGetFullHistory": "Full history",
+		"PNDoGetStrongMotionInfo": "Strong motion information",
+		"PNMinimumMMI": "Minimum MMI",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "Max intensity",
+		"SourceName": "GeoNet",
+		"SourceNameTyped": "GeoNet ({0})",
+		"TitleQuake": "Quake information",
+		"TitleStrong": "Strong motion information"
+	},
+	"StringSets": {
+		"PropertyQualityValue": {
+			"Strings": {
+				"": "Unknown",
+				"best": "Best",
+				"preliminary": "Preliminary",
+				"automatic": "Automatic",
+				"deleted": "Deleted"
+			}
+		},
+		"SourceNameTypes": {
+			"Strings": {
+				"Quake": "Quake information",
+				"QuakeHistory": "Quake location history",
+				"Strong": "Strong motion information"
+			}
+		}
+	}
+}

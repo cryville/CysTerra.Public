@@ -1,0 +1,37 @@
+{
+	"Culture": "zh-TW",
+	"Strings": {
+		"$ExtensionDesc": "用於接收及處理GeoNet API來源的資訊的核心組件。",
+		"$ExtensionName": "GeoNet事件源組件",
+		"AuthorityName": "GeoNet",
+		"PNDoGetFullHistory": "完整歷史",
+		"PNDoGetStrongMotionInfo": "強震動資訊",
+		"PNMinimumMMI": "最小震度",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "最大震度",
+		"SourceName": "GeoNet",
+		"SourceNameTyped": "GeoNet（{0}）",
+		"TitleQuake": "地震資訊",
+		"TitleStrong": "強震動資訊"
+	},
+	"StringSets": {
+		"PropertyQualityValue": {
+			"Strings": {
+				"": "不明",
+				"best": "精確",
+				"preliminary": "速報",
+				"automatic": "自動",
+				"deleted": "刪除"
+			}
+		},
+		"SourceNameTypes": {
+			"Strings": {
+				"Quake": "地震資訊",
+				"QuakeHistory": "地震位置歷史",
+				"Strong": "強震動資訊"
+			}
+		}
+	}
+}

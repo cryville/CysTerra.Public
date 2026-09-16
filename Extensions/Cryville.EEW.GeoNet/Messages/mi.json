@@ -1,0 +1,37 @@
+{
+	"Culture": "mi-NZ",
+	"Strings": {
+		"$ExtensionDesc": "Ngā waehanga mātāmua mō te whiwhi me te tukatuka i ngā mōhiohio mai i a GeoNet API.",
+		"$ExtensionName": "Waehanga pūtake mōhiohio GeoNet",
+		"AuthorityName": "GeoNet",
+		"PNDoGetFullHistory": "Hītori katoa",
+		"PNDoGetStrongMotionInfo": "Mōhiohio kahapā",
+		"PNMinimumMMI": "MMI mōkito",
+		"PropertyDepth": "Hōhonu",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "Kahapā mōrahi",
+		"SourceName": "GeoNet",
+		"SourceNameTyped": "GeoNet ({0})",
+		"TitleQuake": "Mōhiohio rū whenua",
+		"TitleStrong": "Mōhiohio kahapā"
+	},
+	"StringSets": {
+		"PropertyQualityValue": {
+			"Strings": {
+				"": "Tūhuna",
+				"best": "Papai",
+				"preliminary": "Hukihuki",
+				"automatic": "Aunoa",
+				"deleted": "Muku"
+			}
+		},
+		"SourceNameTypes": {
+			"Strings": {
+				"Quake": "Mōhiohio rū whenua",
+				"QuakeHistory": "Hītori taunga rū whenua",
+				"Strong": "Mōhiohio kahapā"
+			}
+		}
+	}
+}

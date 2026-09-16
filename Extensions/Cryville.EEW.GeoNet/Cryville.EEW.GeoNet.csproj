@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Version>0.8.10</Version>
+		<NoWarn>$(NoWarn);CRYVEEW5001</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TagTypeKeys\Cryville.EEW.TagTypeKeys.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
+		<ProjectReference Include="..\Cryville.EEW.GeoJSON\Cryville.EEW.GeoJSON.csproj" Private="false" />
+	</ItemGroup>
+
+</Project>
