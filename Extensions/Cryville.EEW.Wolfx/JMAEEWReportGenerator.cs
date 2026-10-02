@@ -58,10 +58,7 @@ namespace Cryville.EEW.Wolfx {
 				result.InvalidatedTime = new DateTimeOffset(e.DateTime, Local.JapanTimeZoneOffset) + TimeSpan.FromMinutes(5);
 				result.RevisionKey = new ReportRevisionKey(e.Serial, e.SerialType == JMAEEWSerialType.Final);
 				result.Properties.Add(new(TagTypeKeys.IntensityJMA, res.GetStringRequired("PropertyMaxIntensity"), JMAMessageUtils.ToLongDisplayShindo(e.MaxIntensity, culture), context.SeverityScheme, e.MaxIntensity is string maxIntensity ? maxIntensity : null) { AccuracyOrder = 70 });
-				float magnitude = 0, sevMag = -1;
-				if (e.Magnitude is float mag) {
-					sevMag = context.SeverityScheme.From(TagTypeKeys.MagnitudeJMA, magnitude = mag);
-				}
+
 				bool hasLowHypocenterAccuracy = e.HypocenterAccuracy == JMAEEWHypocenterAccuracy.PSWaveLevelExcessionOrIPF1PointOrAssumedHypocenterElement;
 				if (hasLowHypocenterAccuracy && e.Magnitude == null) {
 					result.Properties.Add(new(TagQualityJMAEEW, null, res.GetStringRequired("PropertyQualityValueLevel"), -1) { AccuracyOrder = 70 });
@@ -70,7 +67,14 @@ namespace Cryville.EEW.Wolfx {
 					result.Properties.Add(new(TagQualityJMAEEW, null, res.GetStringRequired("PropertyQualityValuePLUM"), -1) { AccuracyOrder = 70 });
 				}
 				else {
-					result.Properties.Add(new(TagTypeKeys.MagnitudeJMA, res.GetStringRequired("PropertyMagnitude"), e.Magnitude?.ToString("F1", culture) ?? res.GetStringRequired("PropertyMagnitudeValueUnknown"), sevMag) { AccuracyOrder = 70 });
+					float magnitude = 0;
+					if (e.Magnitude is float mag) {
+						magnitude = mag;
+						result.Properties.Add(new(TagTypeKeys.MagnitudeJMA, res.GetStringRequired("PropertyMagnitude"), mag.ToString("F1", culture), context.SeverityScheme, mag) { AccuracyOrder = 70 });
+					}
+					else {
+						result.Properties.Add(new(TagTypeKeys.MagnitudeJMA, res.GetStringRequired("PropertyMagnitude"), res.GetStringRequired("PropertyMagnitudeValueUnknown"), -1) { AccuracyOrder = 70 });
+					}
 					if (e.Latitude is float lat && e.Longitude is float lon) {
 						result.GroupKeys.Add(new HypocenterGroupKey(lat, lon, TimeZoneInfo.ConvertTimeToUtc(e.OriginTime, result.TimeZone), magnitude, e.Depth));
 					}
