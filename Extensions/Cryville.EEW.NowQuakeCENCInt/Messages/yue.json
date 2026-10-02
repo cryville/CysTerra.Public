@@ -1,0 +1,14 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於接收及處理NowQuake CENC烈度速報API來源嘅資訊嘅核心組件。",
+		"$ExtensionName": "NowQuake CENC烈度速報API事件源組件",
+		"AuthorityName": "CENC",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "最大烈度",
+		"Title": "烈度速報",
+		"SourceName": "NowQuake CENC烈度速報API"
+	}
+}

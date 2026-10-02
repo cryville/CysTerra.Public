@@ -1,0 +1,14 @@
+{
+	"Culture": "zh-CN",
+	"Strings": {
+		"$ExtensionDesc": "用于接收及处理NowQuake CENC烈度速报API来源的信息的核心组件。",
+		"$ExtensionName": "NowQuake CENC烈度速报API事件源组件",
+		"AuthorityName": "CENC",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "最大烈度",
+		"Title": "烈度速报",
+		"SourceName": "NowQuake CENC烈度速报API"
+	}
+}

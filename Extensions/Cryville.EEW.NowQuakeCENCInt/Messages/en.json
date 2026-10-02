@@ -1,0 +1,14 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from NowQuake CENC Intensity information API.",
+		"$ExtensionName": "NowQuake CENC Intensity information API event source components",
+		"AuthorityName": "CENC",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"PropertyMaxIntensity": "Max intensity",
+		"Title": "Intensity information",
+		"SourceName": "NowQuake CENC Intensity information API"
+	}
+}
