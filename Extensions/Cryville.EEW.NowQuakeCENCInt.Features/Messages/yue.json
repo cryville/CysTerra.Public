@@ -1,0 +1,7 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於生成NowQuake CENC烈度速報API事件詳細嘅組件。",
+		"$ExtensionName": "NowQuake CENC烈度速報API事物組件"
+	}
+}

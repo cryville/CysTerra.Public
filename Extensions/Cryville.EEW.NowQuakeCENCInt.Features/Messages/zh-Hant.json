@@ -1,0 +1,7 @@
+{
+	"Culture": "zh-TW",
+	"Strings": {
+		"$ExtensionDesc": "用於生成NowQuake CENC震度速報API事件詳情的組件。",
+		"$ExtensionName": "NowQuake CENC震度速報API事物組件"
+	}
+}

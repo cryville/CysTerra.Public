@@ -1,0 +1,7 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Components for generating event details from NowQuake CENC Intensity information API.",
+		"$ExtensionName": "NowQuake CENC Intensity information API feature components"
+	}
+}
