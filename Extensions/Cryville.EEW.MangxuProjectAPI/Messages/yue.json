@@ -1,0 +1,51 @@
+{
+	"Culture": "yue-HK",
+	"Strings": {
+		"$ExtensionDesc": "用於接收及處理Mangxu Project API來源嘅資訊嘅核心組件。",
+		"$ExtensionName": "Mangxu Project API事件源組件",
+		"PNAgencies": "訂閲機構",
+		"PNDoFilterByAgency": "只訂閲部分機構",
+		"PDDoFilterByAgency": "訂閲下方選定嘅機構。唔啓用時，訂閲全部機構。",
+		"PNDoFilterByMinMagnitude": "按最細震級閾值過濾",
+		"PNMinMagnitude": "最細震級閾值",
+		"PNUsgsFilter": "USGS產品篩選項",
+		"PDUsgsFilter": "要接收嘅USGS產品。",
+		"PropertyDepth": "深度",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"SourceName": "Mangxu Project API",
+		"SourceNameTyped": "Mangxu Project API（{0}）"
+	},
+	"StringSets": {
+		"SourceNameTypes": {
+			"Strings": {
+				"": "地震情報",
+				"sa_eew": "SA (USGS ShakeAlert) 地震預警",
+				"cea": "CEA (中國地震台網) 地震預警",
+				"cea_pr": "CEA-PR (中國地震台網省級) 地震預警",
+				"jma_eew": "JMA (日本氣象廳) 緊急地震速報 (EEW) 地震情報",
+				"cwa_eew": "CWA-EEW 台灣地震速報",
+				"ceic": "CEIC (中國地震台網) 地震情報",
+				"usgs": "USGS (美國地質調查局) 地震情報",
+				"emsc": "EMSC (歐洲與地中海地震中心) 地震情報",
+				"jma": "JMA (日本氣象廳) 地震情報",
+				"bmkg": "BMKG (印尼地球物理局) 地震情報",
+				"geonet": "GeoNet (紐西蘭地震台網) 地震情報",
+				"ingv": "INGV (意大利地震局) 地震情報",
+				"gfz": "GFZ (德國地學研究中心) 地震情報",
+				"cwa": "CWA (台灣中央氣象署) 地震情報",
+				"hko": "HKO (香港天文台) 地震情報",
+				"kma": "KMA (韓國氣象廳) 地震情報",
+				"nrcan": "NRCan (加拿大自然資源部) 地震情報",
+				"bcsf": "BCSF (法國中央地震研究所) 地震情報",
+				"usp": "USP (巴西聖保羅大學地震中心) 地震情報",
+				"mmd": "MMD (馬來西亞氣象局) 地震情報"
+			}
+		},
+		"Title": {
+			"Strings": {
+				"": "地震情報"
+			}
+		}
+	}
+}

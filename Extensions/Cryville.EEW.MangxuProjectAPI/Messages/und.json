@@ -7,8 +7,6 @@
 		"PNDoFilterByAgency": "仅订阅部分机构",
 		"PDDoFilterByAgency": "订阅下方选定的机构。不启用时，订阅全部机构。",
 		"PNDoFilterByMinMagnitude": "按最小震级阈值过滤",
-		"PNFilter": "筛选项",
-		"PDFilter": "要接收的事件源。",
 		"PNMinMagnitude": "最小震级阈值",
 		"PNUsgsFilter": "USGS产品筛选项",
 		"PDUsgsFilter": "要接收的USGS产品。",

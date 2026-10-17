@@ -1,0 +1,51 @@
+{
+	"Culture": "en-US",
+	"Strings": {
+		"$ExtensionDesc": "Core components for receiving and processing information from Mangxu Project API.",
+		"$ExtensionName": "Mangxu Project API event source components",
+		"PNAgencies": "Subscribed agencies",
+		"PNDoFilterByAgency": "Subscribe to selected agencies only",
+		"PDDoFilterByAgency": "Subscribe to the agencies selected below. If disabled, subscribe to all agencies.",
+		"PNDoFilterByMinMagnitude": "Filter by minimum magnitude threshold",
+		"PNMinMagnitude": "Minimum magnitude threshold",
+		"PNUsgsFilter": "USGS product filter",
+		"PDUsgsFilter": "The USGS products to receive.",
+		"PropertyDepth": "Depth",
+		"PropertyDepthValue": "{0}km",
+		"PropertyMagnitude": "M",
+		"SourceName": "Mangxu Project API",
+		"SourceNameTyped": "Mangxu Project API ({0})"
+	},
+	"StringSets": {
+		"SourceNameTypes": {
+			"Strings": {
+				"": "Earthquake information",
+				"sa_eew": "SA (USGS ShakeAlert) earthquake early warning",
+				"cea": "CEA (China Earthquake Administration) earthquake early warning",
+				"cea_pr": "CEA-PR (China Earthquake Administration, Provincial-Level) earthquake early warning",
+				"jma_eew": "JMA (Japan Meteorological Agency) earthquake early warning (EEW) earthquake information",
+				"cwa_eew": "CWA-EEW Taiwan earthquake report",
+				"ceic": "CEIC (China Earthquake Networks Center) earthquake information",
+				"usgs": "USGS (United States Geological Survey) earthquake information",
+				"emsc": "EMSC (Euro-Mediterranean Seismological Centre) earthquake information",
+				"jma": "JMA (Japan Meteorological Agency) earthquake information",
+				"bmkg": "BMKG (Meteorology, Climatology, and Geophysical Agency, Indonesia) earthquake information",
+				"geonet": "GeoNet (New Zealand) earthquake information",
+				"ingv": "INGV (National Institute of Geophysics and Volcanology, Italy) earthquake information",
+				"gfz": "GFZ (Germany) earthquake information",
+				"cwa": "CWA (Central Weather Administration, Taiwan) earthquake information",
+				"hko": "HKO (Hong Kong Observatory) earthquake information",
+				"kma": "KMA (Korea Meteorological Administration) earthquake information",
+				"nrcan": "NRCan (Natural Resources Canada) earthquake information",
+				"bcsf": "BCSF (French Central Seismological Bureau) earthquake information",
+				"usp": "USP (University of São Paulo, Brazil) earthquake information",
+				"mmd": "MMD (Malaysian Meteorological Department) earthquake information"
+			}
+		},
+		"Title": {
+			"Strings": {
+				"": "Earthquake information"
+			}
+		}
+	}
+}
