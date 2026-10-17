@@ -139,11 +139,30 @@ namespace Cryville.EEW.MangxuProjectAPI {
 			_isConnected = true;
 			return base.OnConnected(cancellationToken);
 		}
+		bool _init;
+		const int MAX_HISTORY_COUNT = 256;
+		readonly Queue<string> _history = new(MAX_HISTORY_COUNT);
 		protected override async Task Handle(Stream stream, WebSocketMessageType messageType, CancellationToken cancellationToken) {
-			// TODO: Restore events from full_snapshot
 			var msg = await JsonSerializer.DeserializeAsync(stream, SerializerContext.Default.Message, cancellationToken).ConfigureAwait(true)
 				?? throw new JsonException("Null event.");
-			if (msg is SingleAgencyUpdateMessage singleAgencyUpdateMessage) {
+			if (msg is FullSnapshotMessage fullSnapshotMessage) {
+				if (_init) {
+					foreach (var e in fullSnapshotMessage.Earthquakes) {
+						if (_history.Contains(e.Id))
+							continue;
+						await HandleEvent(e, cancellationToken).ConfigureAwait(true);
+					}
+				}
+				else {
+					_init = true;
+					foreach (var e in fullSnapshotMessage.Earthquakes.Reverse()) {
+						if (_history.Count >= MAX_HISTORY_COUNT)
+							_history.Dequeue();
+						_history.Enqueue(e.Id);
+					}
+				}
+			}
+			else if (msg is SingleAgencyUpdateMessage singleAgencyUpdateMessage) {
 				foreach (var e in singleAgencyUpdateMessage.Events) {
 					await HandleEvent(e, cancellationToken).ConfigureAwait(true);
 				}
@@ -159,6 +178,9 @@ namespace Cryville.EEW.MangxuProjectAPI {
 		const int MAX_USGS_HISTORY_COUNT = 256;
 		readonly Queue<string> _usgsHistory = new(MAX_USGS_HISTORY_COUNT);
 		async Task HandleEvent(EarthquakeEvent e, CancellationToken cancellationToken) {
+			if (_history.Count >= MAX_HISTORY_COUNT)
+				_history.Dequeue();
+			_history.Enqueue(e.Id);
 			if (e.SaRaw is { } saRaw) {
 				string id = saRaw.Network + saRaw.Code;
 				if (_usgsHistory.Count >= MAX_USGS_HISTORY_COUNT) {
