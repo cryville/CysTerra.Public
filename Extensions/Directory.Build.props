@@ -14,6 +14,10 @@
 		<ExtensionPackageOutputDirectory>$(MSBuildThisFileDirectory)\Out\$(MSBuildProjectName)\</ExtensionPackageOutputDirectory>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Company)' == ''">
+		<Company>Cryville</Company>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.UsesExtendedSemanticVersioningAttribute" />
 		<AssemblyAttribute Include="Cryville.EEW.ComponentModel.LocalizableDisplayNameAttribute">
