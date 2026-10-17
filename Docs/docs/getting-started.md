@@ -3,10 +3,24 @@ Extensions can be written in any [.NET programming languages](https://dotnet.mic
 
 To build an extension, [.NET SDK](https://dotnet.microsoft.com/en-us/) is required. You can set it up by simply installing [Visual Studio](https://visualstudio.microsoft.com/), which itself is an IDE as well.
 
-An extension is essentially a class library. To create one in Visual Studio, select the “Class Library” template when creating a project. It is recommended to use .NET Standard 2.1 as the framework.
+An extension is essentially a class library. To create one in Visual Studio, select the “Class Library” template when creating a project.
+
+Next, choose a name for your extension. Consider naming your extension according to the pattern `[<Author>.]<SourceOrFeature>.CysTerra[.<Subcomponent>]`. For example:
+
+- `MyApi.CysTerra`
+- `MyApi.CysTerra.Tts`
+- `Lime.LimesApi.CysTerra`
 
 > [!TIP]
 > All the interfaces and first-party extensions of CysTerra have their names started with `Cryville.EEW`. This is not mandatory, and you should pick the name of your extension by yourself instead.
+
+> [!IMPORTANT]
+> However, if you wish to publish your extension to the [official extension repository](https://github.com/cryville/CysTerra.ExtensionRepo), your extension name MUST NOT start with `Cryville` to distinguish it from first-party components.
+
+When prompted to choose a framework, select .NET Standard 2.1.
+
+> [!WARNING]
+> .NET Standard 2.1 is the framework CysTerra extensions should be targeting currently. Typically .NET 6 is also supported but the compatibility may vary depending on the hosting app and the environment. .NET 7+ is not supported.
 
 To instruct the compiler to generate the extension package, you need to open the project file (`.csproj`, `.fsproj`, or `.vbproj` depending on the programming language), and then append the following property.
 
