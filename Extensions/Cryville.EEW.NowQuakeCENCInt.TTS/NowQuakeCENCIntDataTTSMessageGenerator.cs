@@ -77,6 +77,11 @@ namespace Cryville.EEW.NowQuakeCENCInt.TTS {
 				if (station.LocationName is not LocationName locationName) continue;
 				if (locationName.Province is not string province) continue;
 				if (locationName.City is not string city) continue;
+				if (city.Contains("直辖", StringComparison.Ordinal)) {
+					if (locationName.County is not string county)
+						continue;
+					city = county;
+				}
 				yield return (GetAreaName(station.Code, province, city, culture, res), station.Intensity);
 			}
 		}
