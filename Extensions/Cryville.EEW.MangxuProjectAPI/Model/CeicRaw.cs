@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 
 namespace Cryville.EEW.MangxuProjectAPI.Model {
-	[SuppressMessage("CodeQuality", "IDE0079", Justification = "False report")]
 	[SuppressMessage("Design", "CA1054", Justification = "Malformed URL")]
 	[SuppressMessage("Design", "CA1056", Justification = "Malformed URL")]
 	public record CeicRaw(

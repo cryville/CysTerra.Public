@@ -80,7 +80,6 @@ namespace Cryville.EEW.MangxuProjectAPI {
 
 		ISet<MangxuAgency> m_filter = (HashSet<MangxuAgency>)[];
 		[LocalizableDisplayName("PNAgencies")]
-		[SuppressMessage("CodeQuality", "IDE0079", Justification = "False report")]
 		[SuppressMessage("Usage", "CA2227", Justification = "Component property")]
 		public ISet<MangxuAgency> Agencies {
 			get => m_filter;
@@ -96,7 +95,6 @@ namespace Cryville.EEW.MangxuProjectAPI {
 
 		[LocalizableDisplayName("PNUsgsFilter")]
 		[LocalizableDescription("PDUsgsFilter")]
-		[SuppressMessage("CodeQuality", "IDE0079", Justification = "False report")]
 		[SuppressMessage("Usage", "CA2227", Justification = "Component property")]
 		public ISet<USGSProductType> UsgsFilter {
 			get => _usgsGeoJSONFeedHandler.Filter;
