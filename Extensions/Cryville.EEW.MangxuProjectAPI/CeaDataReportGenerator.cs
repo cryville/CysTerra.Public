@@ -20,7 +20,7 @@ namespace Cryville.EEW.MangxuProjectAPI {
 				InvalidatedTime = new DateTimeOffset(e.ShockTime, Local.TimeZoneOffset) + TimeSpan.FromMinutes(5),
 				TimeZone = Local.TimeZone,
 			};
-			result.GroupKeys.Add(new ReportUnitKey(e.Id));
+			result.GroupKeys.Add(new ReportUnitKey(e.EventId));
 			if (!context.NameLocationTo(result, e.Latitude, e.Longitude, Local.Culture, culture)) {
 				result.Location = e.PlaceName;
 				result.LocationSpecificity = CENCHelpers.GetSpecificity(e.PlaceName);
