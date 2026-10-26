@@ -64,8 +64,31 @@ You can install the packages from NuGet. In Visual Studio, select “Manage NuGe
 >
 > The project reference should be non-private as described below.
 
+### Dependency Runtime Trimming
 References to other extensions and public packages should have their runtime files excluded from the build to reduce the build size. To do this, open the project file and append the following attributes.
 
+# [Since 0.8.14](#tab/0-8-14--)
+Starting from `Cryville.EEW` 0.8.14, you should use the unified `IsExtension` attribute to specify whether a reference is an extension. By default, all package references are not extensions, and all project references are extensions.
+
+CysTerra interface packages are now automatically processed. Specifying the `IsExtension` attribute for them does nothing.
+
+```xml
+<ItemGroup>
+	<!-- Reference to another extension package should have
+		IsExtension="true" -->
+	<PackageReference Include="SomeOtherExtension" Version="0.8.14"
+		IsExtension="true" />
+</ItemGroup>
+
+<ItemGroup>
+	<!-- Reference to another non-extension project should have
+		IsExtension="false" -->
+	<ProjectReference Include="..\Cryville.EEW.JMAAtom\Cryville.EEW.JMAAtom.csproj"
+		IsExtension="false" />
+</ItemGroup>
+```
+
+# [Before 0.8.14](#tab/--0-8-13)
 ```xml
 <ItemGroup>
 	<!-- Reference to a public package (listed above) or another extension package should have
@@ -86,6 +109,8 @@ References to other extensions and public packages should have their runtime fil
 		Private="false" />
 </ItemGroup>
 ```
+
+***
 
 ## Components
 The following are documentations about different types of components. Read the one about your targeted component for the next steps.
