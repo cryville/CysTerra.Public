@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>0.8.13</Version>
+		<Version>0.8.14</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TTS\Cryville.EEW.TTS.csproj" Private="false" />
-		<ProjectReference Include="..\Cryville.EEW.NowQuakeCENCInt\Cryville.EEW.NowQuakeCENCInt.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TTS\Cryville.EEW.TTS.csproj" />
+		<ProjectReference Include="..\Cryville.EEW.NowQuakeCENCInt\Cryville.EEW.NowQuakeCENCInt.csproj" />
 	</ItemGroup>
 
 </Project>
