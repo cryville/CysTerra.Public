@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>0.8.13</Version>
+		<Version>0.8.14</Version>
 		<NoWarn>$(NoWarn);CRYVEEW5001</NoWarn>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TagTypeKeys\Cryville.EEW.TagTypeKeys.csproj" Private="false" />
-		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" Private="false" />
-		<ProjectReference Include="..\Cryville.EEW.CENC\Cryville.EEW.CENC.csproj" Private="false" />
-		<ProjectReference Include="..\Cryville.EEW.USGS\Cryville.EEW.USGS.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.TagTypeKeys\Cryville.EEW.TagTypeKeys.csproj" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW\Cryville.EEW.csproj" />
+		<ProjectReference Include="..\Cryville.EEW.CENC\Cryville.EEW.CENC.csproj" />
+		<ProjectReference Include="..\Cryville.EEW.USGS\Cryville.EEW.USGS.csproj" />
 	</ItemGroup>
 
 </Project>
