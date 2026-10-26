@@ -83,7 +83,7 @@ CysTerra interface packages are now automatically processed. Specifying the `IsE
 <ItemGroup>
 	<!-- Reference to another non-extension project should have
 		IsExtension="false" -->
-	<ProjectReference Include="..\Cryville.EEW.JMAAtom\Cryville.EEW.JMAAtom.csproj"
+	<ProjectReference Include="..\SomeCustomLib\SomeCustomLib.csproj"
 		IsExtension="false" />
 </ItemGroup>
 ```
