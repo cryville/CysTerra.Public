@@ -44,7 +44,6 @@ namespace Cryville.EEW.Wolfx {
 		[LocalizableDisplayName("PNFilter")]
 		[LocalizableDescription("PDFilter")]
 		[SuppressMessage("Usage", "CA2227", Justification = "Component property")]
-		[SuppressMessage("CodeQuality", "IDE0079", Justification = "False report")]
 		public ISet<WolfxSource> Filter {
 			get => m_filter;
 			set {

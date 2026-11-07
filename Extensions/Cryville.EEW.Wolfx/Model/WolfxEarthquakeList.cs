@@ -12,7 +12,6 @@ namespace Cryville.EEW.Wolfx.Model {
 		static readonly JsonTypeInfo<T> _jsonTypeInfo = (JsonTypeInfo<T>)(SerializerContext.Default.GetTypeInfo(typeof(T)) ?? throw new InvalidCastException($"Type info for {typeof(T)} not found."));
 
 		[JsonExtensionData]
-		[SuppressMessage("CodeQuality", "IDE0079", Justification = "False report")]
 		[SuppressMessage("Usage", "CA2227", Justification = "DTO")]
 		public Dictionary<string, JsonElement> ExtensionData { get; set; } = [];
 

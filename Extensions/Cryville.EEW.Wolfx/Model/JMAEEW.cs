@@ -1,8 +1,8 @@
 using Cryville.Common.Compat;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Text.Json;
 
 namespace Cryville.EEW.Wolfx.Model {
 	/// <summary>
@@ -32,14 +32,22 @@ namespace Cryville.EEW.Wolfx.Model {
 		public JMAEEWForecastMethod? ForecastMethod { get; private set; }
 		public JMAEEWMaxIntensityChange? MaxIntensityChange { get; private set; }
 		public JMAEEWMaxIntensityChangeReason? MaxIntensityChangeReason { get; private set; }
-		readonly Collection<JMAEEWForecastArea> m_forecastAreas = [];
+		readonly List<JMAEEWForecastArea> m_forecastAreas = [];
 		public IReadOnlyCollection<JMAEEWForecastArea> ForecastAreas => m_forecastAreas;
 
 		static readonly char[] _seps = [' ', '\n'];
 		public JMAEEW(string OriginalText) {
-			ThrowHelper.ThrowIfNullOrWhiteSpace(OriginalText);
-			this.OriginalText = OriginalText;
-			var data = OriginalText.Split(_seps, StringSplitOptions.RemoveEmptyEntries);
+			try {
+				ThrowHelper.ThrowIfNullOrWhiteSpace(OriginalText);
+				this.OriginalText = OriginalText;
+				ParseOriginalText(OriginalText);
+			}
+			catch (Exception ex) {
+				throw new JsonException(string.Format(CultureInfo.InvariantCulture, "Attempted to parse an invalid JMA EEW: {0}", OriginalText), ex);
+			}
+		}
+		void ParseOriginalText(string originalText) {
+			var data = originalText.Split(_seps, StringSplitOptions.RemoveEmptyEntries);
 			Type = (JMAEEWType)int.Parse(data[0], CultureInfo.InvariantCulture);
 			PublishingOffice = (JMAEEWPublishingOffice)int.Parse(data[1], CultureInfo.InvariantCulture);
 			Status = (JMAEEWStatus)int.Parse(data[2], CultureInfo.InvariantCulture);
