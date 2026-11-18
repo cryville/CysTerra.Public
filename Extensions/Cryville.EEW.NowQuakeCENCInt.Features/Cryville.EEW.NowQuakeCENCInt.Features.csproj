@@ -1,13 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>0.8.11</Version>
+		<Version>0.9.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.Features\Cryville.EEW.Features.csproj" Private="false" />
-		<ProjectReference Include="..\..\Interfaces\Cryville.Measure\Cryville.Measure.csproj" Private="false" />
-		<ProjectReference Include="..\Cryville.EEW.NowQuakeCENCInt\Cryville.EEW.NowQuakeCENCInt.csproj" Private="false" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.EEW.Features\Cryville.EEW.Features.csproj" />
+		<ProjectReference Include="..\..\Interfaces\Cryville.Measure\Cryville.Measure.csproj" />
+		<ProjectReference Include="..\Cryville.EEW.NowQuakeCENCInt\Cryville.EEW.NowQuakeCENCInt.csproj" />
 	</ItemGroup>
 
 </Project>
