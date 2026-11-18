@@ -9,6 +9,7 @@
 		"PropertyMagnitude": "M",
 		"PropertyMaxIntensity": "最大震度",
 		"Title": "震度速報",
-		"SourceName": "NowQuake CENC震度速報API"
+		"SourceName": "NowQuake CENC震度速報API（舊版）",
+		"SourceNameV2": "NowQuake CENC震度速報API（V2）"
 	}
 }

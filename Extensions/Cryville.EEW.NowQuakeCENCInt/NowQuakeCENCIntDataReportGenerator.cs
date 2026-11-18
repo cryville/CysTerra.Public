@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Globalization;
 
 namespace Cryville.EEW.NowQuakeCENCInt {
+	[Obsolete("Use the V2 protocol instead.")]
 	public class NowQuakeCENCIntDataReportGenerator : IContextedGenerator<WsData, IReportGeneratorContext, ReportModel> {
 		public ReportModel Generate(WsData e, IReportGeneratorContext? context, ref CultureInfo culture) {
 			ThrowHelper.ThrowIfNull(e);
@@ -19,28 +20,32 @@ namespace Cryville.EEW.NowQuakeCENCInt {
 				Title = res.GetStringRequired("Title"),
 				Source = res.GetStringRequired("AuthorityName"),
 				Predicate = affixes,
-				Time = new(e.HappenTime, Local.TimeZoneOffset),
 				TimeZone = Local.TimeZone,
 			};
-			result.GroupKeys.Add(new ReportUnitKey(e.EarthquakeId));
-			result.RevisionKey = new ReportRevisionKey(e.UpdateTime);
+			if (e.HappenTime is DateTime happenTime)
+				result.Time = new(happenTime, Local.TimeZoneOffset);
+			result.GroupKeys.Add(new ReportUnitKey(e.EqId));
+			result.RevisionKey = new ReportRevisionKey(e.UpdateTime ?? TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, Local.TimeZone));
 
-			context.NameLocationTo(result, e.Latitude, e.Longitude, Local.Culture, culture);
-			result.GroupKeys.Add(new HypocenterGroupKey(e.Latitude, e.Longitude, TimeZoneInfo.ConvertTimeToUtc(e.HappenTime, result.TimeZone), e.Magnitude, e.Depth));
+			if (e.Latitude is double latitude && e.Longitude is double longitude) {
+				context.NameLocationTo(result, latitude, longitude, Local.Culture, culture);
+				if (e.HappenTime is DateTime happenTime2 && e.Magnitude is double magnitude)
+					result.GroupKeys.Add(new HypocenterGroupKey(latitude, longitude, TimeZoneInfo.ConvertTimeToUtc(happenTime2, result.TimeZone), magnitude, e.Depth));
+			}
 
-			if (e.MaxIntensity is float maxIntensity && (maxIntensity != 0 || (e.Stations is IReadOnlyCollection<Station> stations && stations.Count > 0)))
-				result.Properties.Add(RomanNumerals.CreateRomanIntensityProperty(TagTypeKeys.IntensityCSIS, res.GetStringRequired("PropertyMaxIntensity"), maxIntensity, culture, context.SeverityScheme, 10));
+			if (e.Maxintensity is double maxIntensity && (maxIntensity != 0 || (e.Stations is IReadOnlyCollection<Station> stations && stations.Count > 0)))
+				result.Properties.Add(RomanNumerals.CreateRomanIntensityProperty(TagTypeKeys.IntensityCSIS, res.GetStringRequired("PropertyMaxIntensity"), (float)maxIntensity, culture, context.SeverityScheme, 10));
 			else
 				result.Properties.Add(new(TagTypeKeys.IntensityCSIS, res.GetStringRequired("PropertyMaxIntensity"), "-", -1) { AccuracyOrder = 100 });
 
-			result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), e.Magnitude.ToString("F1", culture), context.SeverityScheme, e.Magnitude) { AccuracyOrder = 10 });
+			result.Properties.Add(new(TagTypeKeys.Magnitude, res.GetStringRequired("PropertyMagnitude"), e.Magnitude?.ToString("F1", culture) ?? "?", context.SeverityScheme, e.Magnitude) { AccuracyOrder = 10 });
 
 			if (result.Location == null) {
 				result.Location = localLocationName;
 				result.LocationSpecificity = CENCHelpers.GetSpecificity(localLocationName);
 			}
 
-			if (e.Depth is float depth) result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), depth), context.SeverityScheme, depth) { AccuracyOrder = 10 });
+			if (e.Depth is double depth) result.Properties.Add(new(TagTypeKeys.HypocenterDepth, res.GetStringRequired("PropertyDepth"), string.Format(culture, res.GetStringRequired("PropertyDepthValue"), depth), context.SeverityScheme, depth) { AccuracyOrder = 10 });
 
 			return result;
 		}

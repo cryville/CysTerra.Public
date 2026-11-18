@@ -1,9 +1,18 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
 
 namespace Cryville.EEW.NowQuakeCENCInt {
 	public static class SharedResources {
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public static string? SourceNameV2([NotNull] ref CultureInfo? culture) {
+			using var lres = new LocalizedResource("", ref culture);
+			var res = lres.RootMessageStringSet;
+			return res.GetStringRequired("SourceNameV2");
+		}
+
+		[Obsolete("Use the V2 protocol instead.")]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static string? SourceName([NotNull] ref CultureInfo? culture) {
 			using var lres = new LocalizedResource("", ref culture);

@@ -9,6 +9,7 @@
 		"PropertyMagnitude": "M",
 		"PropertyMaxIntensity": "Max intensity",
 		"Title": "Intensity information",
-		"SourceName": "NowQuake CENC Intensity information API"
+		"SourceName": "NowQuake CENC Intensity information API (Legacy)",
+		"SourceNameV2": "NowQuake CENC Intensity information API (V2)"
 	}
 }

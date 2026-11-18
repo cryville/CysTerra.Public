@@ -9,6 +9,7 @@
 		"PropertyMagnitude": "M",
 		"PropertyMaxIntensity": "最大烈度",
 		"Title": "烈度速报",
-		"SourceName": "NowQuake CENC烈度速报API"
+		"SourceName": "NowQuake CENC烈度速报API（旧版）",
+		"SourceNameV2": "NowQuake CENC烈度速报API（V2）"
 	}
 }

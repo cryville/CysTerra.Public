@@ -8,6 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cryville.EEW.NowQuakeCENCInt {
+	[Obsolete("Use the V2 protocol instead.")]
 	public class NowQuakeCENCIntWorker(Uri wsUri) : WebSocketWorker(wsUri), ISourceWorker {
 		public string? GetName([NotNull] ref CultureInfo? culture) => SharedResources.SourceName(ref culture);
 
